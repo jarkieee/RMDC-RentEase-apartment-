@@ -2,11 +2,11 @@
 RentEase is a web-based apartment rental management system for RMDC designed to help apartment owners and tenants manage rental-related information, such as payment and viewing units to avail of prospective tenant
 
 # Team Members 
-1.Lawrenze Victor Apostol
-2.Mark Enzo Acerdin
-3.Mary Grace Mirandilla
-4.Rodlyn Villaruel
-5.Rolando Jr. Gutierrez
+* Lawrenze Victor Apostol
+* Mark Enzo Acerdin
+* Mary Grace Mirandilla
+* Rodlyn Villaruel
+* Rolando Jr. Gutierrez
 
 
 # Technology Used
