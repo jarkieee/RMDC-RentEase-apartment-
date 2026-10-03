@@ -143,16 +143,193 @@ nav {
     margin-top: 5px;
 }
 
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
 @media (max-width: 800px) {
+
+    .layout {
+        flex-direction: column;
+    }
+
     .sidebar {
-        width: 180px;
+        width: 100%;
+        min-height: auto;
+        padding: 15px;
+        background-image:
+            linear-gradient(rgba(8, 43, 91, 0.95), rgba(8, 43, 91, 0.95)),
+            url("https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop.jpg");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .profile {
+        margin-bottom: 15px;
+    }
+
+    .profile-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 35px;
+    }
+
+    .profile h3 {
+        font-size: 17px;
+    }
+
+    .profile p {
+        font-size: 12px;
+    }
+
+    nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .nav-link {
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 13px;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .topbar {
+        padding: 18px 20px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .topbar h1 {
+        font-size: 21px;
+    }
+
+    .notification {
+        font-size: 20px;
+    }
+
+    .dashboard-content {
+        padding: 20px;
     }
 
     .cards {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .activities {
+        margin-top: 25px;
     }
 }
 
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        padding: 12px;
+    }
+
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-link {
+        text-align: left;
+        padding: 11px 12px;
+    }
+
+    .topbar {
+        padding: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 18px;
+    }
+
+    .dashboard-content {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card strong {
+        font-size: 26px;
+    }
+
+    .activity {
+        padding: 15px;
+    }
+
+    .login-card {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 25px;
+    }
+
+    .logout-box {
+        width: calc(100% - 30px);
+        padding: 25px 20px;
+    }
+
+    .logout-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cancel-button,
+    .confirm-button {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media (max-width: 360px) {
+
+    .topbar h1 {
+        font-size: 17px;
+    }
+
+    .dashboard-content {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .card strong {
+        font-size: 24px;
+    }
+
+    .login-container {
+        padding: 12px;
+    }
+
+    .login-card {
+        padding: 22px 16px;
+    }
+}
 .card-icon {
     font-size: 28px;
     margin-bottom: 12px;
