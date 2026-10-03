@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RentEase - Request Confirmation</title>
+
+    <link rel="stylesheet" href="../css/prospective.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">RE</div>
+
+            <div>
+                <h2>RentEase</h2>
+                <span>RMDC Apartment</span>
+            </div>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="dashboard.html#units">
+                Available Units
+            </a>
+
+            <a href="schedule-viewing.html">
+                Schedule Viewing
+            </a>
+
+            <a href="request-confirmation.html"
+               class="active">
+                My Request
+            </a>
+
+           <a href="../Admin/index.html" class="logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <section class="confirmation">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <span class="small-title">
+                REQUEST SUBMITTED
+            </span>
+
+            <h1>Viewing Request Submitted!</h1>
+
+            <p>
+                Your viewing request has been successfully
+                submitted. Please wait for confirmation from
+                the apartment administrator.
+            </p>
+
+
+            <div class="request-box">
+
+                <div class="request-row">
+
+                    <span>Selected Unit</span>
+
+                    <strong id="confirmUnit">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="request-row">
+
+                    <span>Full Name</span>
+
+                    <strong id="confirmName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="request-row">
+
+                    <span>Preferred Date</span>
+
+                    <strong id="confirmDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="request-row">
+
+                    <span>Preferred Time</span>
+
+                    <strong id="confirmTime">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="request-row">
+
+                    <span>Status</span>
+
+                    <span class="pending">
+                        Pending
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="confirmation-actions">
+
+                <a href="dashboard.html"
+                   class="secondary-btn">
+                    Back to Dashboard
+                </a>
+
+                <a href="schedule-viewing.html"
+                   class="primary-btn">
+                    Make Another Request
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            <strong>RentEase</strong>
+            <p>Web-Based Rental Management System for RMDC Apartment</p>
+        </div>
+
+        <p>© 2026 RentEase</p>
+
+    </footer>
+
+
+    <script>
+
+        const savedRequest =
+            localStorage.getItem("renteaseViewingRequest");
+
+
+        if (savedRequest) {
+
+            const request =
+                JSON.parse(savedRequest);
+
+
+            document.getElementById("confirmUnit")
+                .textContent =
+                "Unit " + request.unit;
+
+
+            document.getElementById("confirmName")
+                .textContent =
+                request.name;
+
+
+            document.getElementById("confirmDate")
+                .textContent =
+                request.date;
+
+
+            document.getElementById("confirmTime")
+                .textContent =
+                request.time;
+
+        }
+
+    </script>
+
+</body>
+</html>

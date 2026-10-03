@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEase - Tenant Profile</title>
+
+    <link rel="stylesheet" href="../css/tenant.css">
+</head>
+
+<body>
+
+<div class="tenant-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="tenant-sidebar">
+
+        <div class="tenant-brand">
+            <div class="tenant-logo">🏠</div>
+            <div>
+                <h2>RentEase</h2>
+                <span>Current Tenant</span>
+            </div>
+        </div>
+
+        <div class="tenant-info">
+                <div class="profile-circle"></div>
+                <h3>Hello, Guest</h3>
+                <p>Current Tenant</p>
+            </div>
+
+        <nav class="tenant-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📶</span>
+                Dashboard
+            </a>
+
+            <a href="payments.html" class="nav-item">
+                <span>💳</span>
+                Payments
+            </a>
+
+            <a href="maintenance.html" class="nav-item">
+                <span>🔧</span>
+                Maintenance
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span>👤</span>
+                Profile
+            </a>
+
+             <a href="settings.html" class="nav-item">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>My Profile</h1>
+                <p>View your personal and rental information.</p>
+            </div>
+
+            <button class="notification-btn" title="Notifications">
+                🔔
+            </button>
+
+        </header>
+
+
+        <!-- PROFILE CONTENT -->
+        <div class="profile-content">
+
+            <!-- PERSONAL INFORMATION -->
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Your basic tenant information.</p>
+                    </div>
+
+                    <button class="edit-button" onclick="editProfile()">
+                        ✏️ Edit Profile
+                    </button>
+                </div>
+
+
+                <div class="profile-header">
+
+                    <div class="large-profile-circle">
+                        JD
+                    </div>
+
+                    <div>
+                        <h2>Juan Dela Cruz</h2>
+                        <p>Current Tenant</p>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="profile-item">
+                        <span>Full Name</span>
+                        <strong>Juan Dela Cruz</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Email Address</span>
+                        <strong>juan.delacruz@email.com</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Contact Number</span>
+                        <strong>0912 345 6789</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Date of Birth</span>
+                        <strong>January 15, 2000</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RENTAL INFORMATION -->
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+                        <h2>Rental Information</h2>
+                        <p>Your current apartment details.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="profile-item">
+                        <span>Apartment Name</span>
+                        <strong>RMDC Apartment Rental</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Unit Number</span>
+                        <strong>Unit 03</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Monthly Rent</span>
+                        <strong>₱3,500</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Tenant Status</span>
+                        <strong class="active-status">Active</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEASE INFORMATION -->
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+                        <h2>Lease Information</h2>
+                        <p>Details about your current lease.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="profile-item">
+                        <span>Lease Start</span>
+                        <strong>February 22, 2026</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Lease Status</span>
+                        <strong class="active-status">Active</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Payment Due</span>
+                        <strong>Every 22nd of the month</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Payment Method</span>
+                        <strong>GCash</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEASE DOCUMENT -->
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div>
+                        <h2>Lease Document</h2>
+                        <p>Your current rental agreement.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="document-box">
+
+                    <div class="document-icon">
+                        📄
+                    </div>
+
+                    <div class="document-info">
+                        <strong>Lease Contract Agreement</strong>
+                        <span>Signed on February 22, 2026</span>
+                    </div>
+
+                    <button class="document-button" onclick="viewDocument()">
+                        View
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script>
+
+function editProfile() {
+    alert("Edit Profile is for demonstration only.");
+}
+
+function viewDocument() {
+    alert("Lease document preview is for demonstration only.");
+}
+
+</script>
+
+</body>
+</html>

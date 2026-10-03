@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RentEase - Unit Details</title>
+
+    <link rel="stylesheet" href="../css/prospective.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">RE</div>
+
+            <div>
+                <h2>RentEase</h2>
+                <span>RMDC Apartment</span>
+            </div>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+            <a href="dashboard.html#units">Available Units</a>
+            <a href="schedule-viewing.html">Schedule Viewing</a>
+            <a href="request-confirmation.html">My Request</a>
+           <a href="../Admin/index.html" class="logout">Logout</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- PAGE -->
+    <main class="container">
+
+        <div class="page-header">
+
+            <span class="small-title">APARTMENT INFORMATION</span>
+
+            <h1>Unit Details</h1>
+
+            <p>
+                View the information of the selected apartment unit.
+            </p>
+
+        </div>
+
+
+       <section class="details-card">
+
+    <div class="details-image">
+        <img id="unitPhoto" src="https://i.pinimg.com/736x/41/d7/ee/41d7ee49aa3f7192f57e1ded4ab9cdfd.jpg" alt="Unit">
+    </div>
+
+    <div class="details-info">
+
+        <span class="status available">Available</span>
+
+        <h2 id="unitName">Unit 3</h2>
+
+        <p id="unitDescription">
+            This apartment unit is currently available for prospective tenants.
+        </p>
+
+        <div class="info-row">
+            <span>Unit Number</span>
+            <strong id="unitNumber">Unit 3</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Status</span>
+            <strong>Available</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Property</span>
+            <strong>RMDC Apartment</strong>
+        </div>
+
+        <div class="info-row">
+            <span>Unit Type</span>
+            <strong>Apartment Unit</strong>
+        </div>
+
+        <div class="details-actions">
+    <a href="dashboard.html" class="back-btn">Back</a>
+    <a href="schedule-viewing.html" class="schedule-btn">Schedule Viewing</a>
+</div>
+
+    </div>
+
+</section>
+
+        <section class="information-section">
+
+            <span class="small-title">NEXT STEP</span>
+
+            <h2>Want to see the unit?</h2>
+
+            <p>
+                Schedule a viewing and choose your preferred
+                date and time.
+            </p>
+
+            <a id="bottomSchedule"
+               href="schedule-viewing.html"
+               class="primary-btn">
+                Schedule a Viewing
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            <strong>RentEase</strong>
+            <p>Web-Based Rental Management System for RMDC Apartment</p>
+        </div>
+
+        <p>© 2026 RentEase</p>
+
+    </footer>
+
+
+    <script>
+
+        const params = new URLSearchParams(window.location.search);
+const unit = params.get("unit");
+
+if (unit === "3") {
+    document.getElementById("unitName").textContent = "Unit 3";
+    document.getElementById("unitNumber").textContent = "Unit 3";
+    document.getElementById("unitPhoto").src = "https://i.pinimg.com/736x/41/d7/ee/41d7ee49aa3f7192f57e1ded4ab9cdfd.jpg";
+}
+
+if (unit === "4") {
+    document.getElementById("unitName").textContent = "Unit 4";
+    document.getElementById("unitNumber").textContent = "Unit 4";
+    document.getElementById("unitPhoto").src = "https://i.pinimg.com/1200x/cb/54/7f/cb547f0efe0caaec4ac05e6ba2482bc4.jpg";
+}
+
+if (unit === "5") {
+    document.getElementById("unitName").textContent = "Unit 5";
+    document.getElementById("unitNumber").textContent = "Unit 5";
+    document.getElementById("unitPhoto").src = "https://i.pinimg.com/736x/73/38/1c/73381c5d12136c923d30dd089f7c373e.jpg";
+}
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment History - RentEase</title>
+
+    <link rel="stylesheet" href="../css/tenant.css">
+</head>
+
+<body>
+
+<div class="tenant-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="tenant-sidebar">
+
+        <div class="tenant-brand">
+            <div class="tenant-logo">🏠</div>
+            <div>
+                <h2>RentEase</h2>
+                <span>Current Tenant</span>
+            </div>
+        </div>
+
+        <div class="tenant-info">
+                <div class="profile-circle"></div>
+                <h3>Hello, Guest</h3>
+                <p>Current Tenant</p>
+            </div>
+
+        <nav class="tenant-nav">
+
+            <a href="dashboard.html">
+                <span>📶</span>
+                Dashboard
+            </a>
+
+            <a href="payments.html" class="active">
+                <span>💳</span>
+                Payments
+            </a>
+
+            <a href="maintenance.html">
+                <span>🔧</span>
+                Maintenance
+            </a>
+
+            <a href="profile.html">
+                <span>👤</span>
+                Profile
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+                
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="tenant-main">
+
+        <header class="tenant-header">
+
+            <div>
+                <h1>Payment History</h1>
+                <p>View your previous rental payments.</p>
+            </div>
+
+            <div class="tenant-user">
+                <div class="tenant-avatar">JD</div>
+
+                <div>
+                    <strong>Juan Dela Cruz</strong>
+                    <small>Current Tenant</small>
+                </div>
+            </div>
+
+        </header>
+
+
+        <section class="tenant-content">
+
+            <!-- SUMMARY -->
+            <div class="tenant-cards">
+
+                <div class="tenant-card">
+                    <div class="card-icon">💰</div>
+
+                    <div>
+                        <span>Monthly Rent</span>
+                        <h2>₱3,500</h2>
+                    </div>
+                </div>
+
+
+                <div class="tenant-card">
+                    <div class="card-icon">📅</div>
+
+                    <div>
+                        <span>Next Due Date</span>
+                        <h2>Sept. 22, 2026</h2>
+                    </div>
+                </div>
+
+
+                <div class="tenant-card">
+                    <div class="card-icon">✓</div>
+
+                    <div>
+                        <span>Payment Status</span>
+                        <h2 class="status-paid">Paid</h2>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT HISTORY -->
+            <div class="tenant-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Payment History</h2>
+                        <p>Your previous rental payment records.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="tenant-table-wrapper">
+
+                    <table class="tenant-table">
+
+                        <thead>
+                            <tr>
+                                <th>Payment ID</th>
+                                <th>Billing Month</th>
+                                <th>Date Paid</th>
+                                <th>Amount</th>
+                                <th>Method</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>#PAY-005</td>
+                                <td>August 2026</td>
+                                <td>Aug. 22, 2026</td>
+                                <td>₱3,500</td>
+                                <td>GCash</td>
+                                <td>
+                                    <span class="status-badge paid">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#PAY-004</td>
+                                <td>July 2026</td>
+                                <td>July 22, 2026</td>
+                                <td>₱3,500</td>
+                                <td>Cash</td>
+                                <td>
+                                    <span class="status-badge paid">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#PAY-003</td>
+                                <td>June 2026</td>
+                                <td>June 22, 2026</td>
+                                <td>₱3,500</td>
+                                <td>GCash</td>
+                                <td>
+                                    <span class="status-badge paid">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#PAY-002</td>
+                                <td>May 2026</td>
+                                <td>May 22, 2026</td>
+                                <td>₱3,500</td>
+                                <td>GCash</td>
+                                <td>
+                                    <span class="status-badge paid">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>#PAY-001</td>
+                                <td>April 2026</td>
+                                <td>Apr. 22, 2026</td>
+                                <td>₱3,500</td>
+                                <td>Cash</td>
+                                <td>
+                                    <span class="status-badge paid">
+                                        Paid
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYMENT INFORMATION -->
+            <div class="tenant-section">
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Payment Information</h2>
+                        <p>Details about your rental payment.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-grid">
+
+                    <div class="info-item">
+                        <span>Monthly Rent</span>
+                        <strong>₱3,500</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Payment Due</span>
+                        <strong>Every 22nd of the month</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Preferred Method</span>
+                        <strong>GCash</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>Tenant Status</span>
+                        <strong class="status-paid">Active</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- BACK BUTTON -->
+            <div class="page-actions">
+
+                <a href="payments.html" class="secondary-btn">
+                    ← Back to Payments
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+</body>
+</html>
