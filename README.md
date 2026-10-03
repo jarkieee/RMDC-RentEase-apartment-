@@ -15,7 +15,7 @@ RentEase is a web-based apartment rental management system for RMDC designed to 
 * JavaScript
 * Figma
 
-# Setuo Instruction
+# Setup Instruction
 1. Clone the Respiratory
 2. Open the project folder
 3. Run the index.html file Using a Browser
