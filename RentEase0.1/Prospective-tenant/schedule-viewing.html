@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RentEase - Schedule Viewing</title>
+
+    <link rel="stylesheet" href="../css/prospective.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">RE</div>
+
+            <div>
+                <h2>RentEase</h2>
+                <span>RMDC Apartment</span>
+            </div>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="dashboard.html">Dashboard</a>
+            <a href="dashboard.html#units">Available Units</a>
+            <a href="schedule-viewing.html" class="active">
+                Schedule Viewing
+            </a>
+            <a href="request-confirmation.html">
+                My Request
+            </a>
+           <a href="../Admin/index.html" class="logout">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <main class="container">
+
+        <div class="page-header">
+
+            <span class="small-title">VIEWING REQUEST</span>
+
+            <h1>Schedule a Viewing</h1>
+
+            <p>
+                Fill out the form below to request a viewing.
+            </p>
+
+        </div>
+
+
+        <section class="form-section">
+
+            <div class="form-intro">
+
+                <div class="form-icon">📅</div>
+
+                <h2>Viewing Details</h2>
+
+                <p>
+                    Choose your preferred schedule.
+                    The administrator will review your request.
+                </p>
+
+            </div>
+
+
+            <form onsubmit="submitRequest(event)">
+
+                <div class="form-group">
+
+                    <label for="unit">
+                        Selected Unit
+                    </label>
+
+                    <input
+                        type="text"
+                        id="unit"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="contact">
+                            Contact Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="contact"
+                            placeholder="Enter your contact number"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="date">
+                            Preferred Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="date"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="time">
+                            Preferred Time
+                        </label>
+
+                        <select id="time" required>
+
+                            <option value="">
+                                Select a time
+                            </option>
+
+                            <option>9:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>1:00 PM</option>
+                            <option>2:00 PM</option>
+                            <option>3:00 PM</option>
+                            <option>4:00 PM</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Additional Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="5"
+                        placeholder="Optional message"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a href="dashboard.html"
+                       class="secondary-btn">
+                        Cancel
+                    </a>
+
+                    <button type="submit"
+                            class="primary-btn">
+                        Submit Request
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            <strong>RentEase</strong>
+            <p>Web-Based Rental Management System for RMDC Apartment</p>
+        </div>
+
+        <p>© 2026 RentEase</p>
+
+    </footer>
+
+
+    <script>
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const unit =
+            params.get("unit") || "3";
+
+
+        document.getElementById("unit").value =
+            "Unit " + unit;
+
+
+        function submitRequest(event) {
+
+            event.preventDefault();
+
+
+            const request = {
+
+                unit: unit,
+
+                name:
+                    document.getElementById("name").value,
+
+                contact:
+                    document.getElementById("contact").value,
+
+                date:
+                    document.getElementById("date").value,
+
+                time:
+                    document.getElementById("time").value,
+
+                message:
+                    document.getElementById("message").value
+
+            };
+
+
+            localStorage.setItem(
+                "renteaseViewingRequest",
+                JSON.stringify(request)
+            );
+
+
+            window.location.href =
+                "request-confirmation.html";
+
+        }
+
+    </script>
+
+</body>
+</html>

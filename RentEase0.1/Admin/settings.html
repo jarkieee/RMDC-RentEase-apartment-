@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEase - Admin Settings</title>
+    
+    <style>
+        /* --- Global Resets & Variables --- */
+        :root {
+            --sidebar-dark: #0f223f;
+            --sidebar-light: #133261;
+            --sidebar-active: #0a4da3;
+            --bg-color: #f4f6f9;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Layout --- */
+        .layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 240px;
+    height: 100vh;
+    background: #1E293B;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    z-index: 1000;
+}
+
+.sidebar-top {
+    background: transparent;
+    padding: 25px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.profile-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #E2E8F0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #475569;
+}
+
+.profile-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.profile-role {
+    font-size: 13px;
+    color: #CBD5E1;
+}
+
+.sidebar-nav {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 13px 20px;
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    background: #334155;
+    color: white;
+}
+
+.nav-link.active {
+    background: #2563EB;
+    color: white;
+    font-weight: 600;
+}
+
+
+/* --- Main Content Area --- */
+.main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+        
+
+        /* Topbar */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .topbar h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .notification {
+            cursor: pointer;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Dashboard Content Area */
+        .dashboard-content {
+            padding: 30px 40px;
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* --- Settings Cards --- */
+        .settings-card {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #fafbfc;
+        }
+
+        .card-header h2 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-header p {
+            margin: 5px 0 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* --- Profile Section --- */
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .profile-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #eff6ff;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-avatar svg {
+            width: 35px;
+            height: 35px;
+        }
+
+        .profile-name strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .profile-name span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- Form Elements --- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .field input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            outline: none;
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* --- Buttons --- */
+        .button-row {
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            border: 1px solid var(--border-color);
+            background: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: #209bf5;
+            color: #111;
+            border-color: #209bf5;
+        }
+
+        .btn-primary:hover {
+            background: #1a87d9;
+            border-color: #1a87d9;
+        }
+
+        /* --- Notifications Toggles --- */
+        .notification-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .notification-item:first-child {
+            padding-top: 0;
+        }
+
+        .notification-info strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .notification-info span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        /* Toggle Switch */
+        .switch {
+            position: relative;
+            width: 46px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            inset: 0;
+            background: #cbd5e1;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .slider:before {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            left: 3px;
+            top: 3px;
+            background: white;
+            border-radius: 50%;
+            transition: .2s;
+        }
+
+        .switch input:checked + .slider {
+            background: #2563eb;
+        }
+
+        .switch input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        /* --- Logout Section --- */
+        .logout-card {
+            border: 1px solid #fecaca;
+            background-color: #fef2f2;
+        }
+
+        .logout-card .card-header {
+            background-color: #fef2f2;
+            border-bottom: 1px solid #fecaca;
+        }
+        
+        .logout-card .card-header h2 {
+            color: #b91c1c;
+        }
+
+        .logout-btn {
+            background: white;
+            color: #b91c1c;
+            border: 1px solid #b91c1c;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .logout-btn:hover {
+            background: #b91c1c;
+            color: white;
+        }
+
+        /* --- Modal --- */
+        .logout-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logout-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-box h2 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .logout-box p {
+            color: var(--text-muted);
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .logout-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .cancel-button, .confirm-button {
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .cancel-button {
+            background: #e5e7eb;
+            color: #374151;
+        }
+        .cancel-button:hover {
+            background: #d1d5db;
+        }
+
+        .confirm-button {
+            background: #ef4444;
+            color: white;
+        }
+        .confirm-button:hover {
+            background: #dc2626;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .layout {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+            }
+            body {
+                overflow-y: auto;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .topbar, .dashboard-content {
+                padding: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            
+            <div class="sidebar-top">
+                <div class="profile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h3 class="profile-name">RMDC</h3>
+                <p class="profile-role">Admin</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">  <span>📶</span>Dashboard</a>
+                <a href="units.html" class="nav-link"><span>🏠</span>Units</a>
+                <a href="tenants.html" class="nav-link"><span>👥</span>Tenants</a>
+                <a href="payments.html" class="nav-link"><span>💳</span>Payments</a>
+                <a href="appointments.html" class="nav-link"><span>📅</span>Appointments</a>
+                <a href="maintenance.html" class="nav-link"><span>🔧</span>Maintenance</a>
+                <a href="settings.html" class="nav-link active"><span>⚙️</span>Settings</a>
+                
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="topbar">
+                <h1>Settings</h1>
+                <div class="notification" onclick="showMessage('You have no new notifications.')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </div>
+            </header>
+
+            <section class="dashboard-content">
+
+                <!-- ADMIN PROFILE -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h2>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            Admin Profile
+                        </h2>
+                        <p>Manage your basic administrator information.</p>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="profile-top">
+                            <div class="profile-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            </div>
+                            <div class="profile-name">
+                                <strong id="profileDisplayName">Admin</strong>
+                                <span>Apartment Administrator</span>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="field">
+                                <label>Admin Name</label>
+                                <input type="text" id="adminName" value="Admin">
+                            </div>
+                            <div class="field">
+                                <label>Email</label>
+                                <input type="email" id="adminEmail" value="admin@rentease.com">
+                            </div>
+                            <div class="field">
+                                <label>Contact Number</label>
+                                <input type="text" id="adminContact" placeholder="09XX XXX XXXX">
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button class="btn btn-primary" onclick="saveProfile()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- APARTMENT INFORMATION -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h2>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/></svg>
+                            Apartment Information
+                        </h2>
+                        <p>Manage the basic information of the apartment.</p>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-grid">
+                            <div class="field">
+                                <label>Apartment Name</label>
+                                <input type="text" id="apartmentName" value="RMDC Apartment Rental">
+                            </div>
+                            <div class="field">
+                                <label>Contact Number</label>
+                                <input type="text" id="apartmentContact" placeholder="09XX XXX XXXX">
+                            </div>
+                            <div class="field">
+                                <label>Address</label>
+                                <input type="text" id="apartmentAddress" placeholder="Enter apartment address">
+                            </div>
+                            <div class="field">
+                                <label>GCash Number</label>
+                                <input type="text" id="gcash" placeholder="09XX XXX XXXX">
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button class="btn btn-primary" onclick="saveApartment()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- NOTIFICATIONS -->
+                <div class="settings-card">
+                    <div class="card-header">
+                        <h2>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                            Notifications
+                        </h2>
+                        <p>Choose which notifications the admin wants to receive.</p>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <strong>Payment Reminders</strong>
+                                <span>Receive reminders for pending rental payments.</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked onchange="toggleNotification('Payment Reminders', this)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <strong>New Viewing Appointments</strong>
+                                <span>Get notified when a viewing is scheduled.</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked onchange="toggleNotification('Viewing Appointments', this)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <div class="notification-info">
+                                <strong>New Maintenance Requests</strong>
+                                <span>Get notified when a tenant submits a request.</span>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" checked onchange="toggleNotification('Maintenance Requests', this)">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- LOGOUT -->
+                <div class="settings-card logout-card">
+                    <div class="card-header">
+                        <h2>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                            Logout
+                        </h2>
+                        <p>Exit the RentEase Admin account.</p>
+                    </div>
+                    <div class="card-body">
+                        <button class="logout-btn" onclick="openLogoutModal()">Logout</button>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- LOGOUT MODAL -->
+    <div class="logout-modal" id="logoutModal">
+        <div class="logout-box">
+            <h2>Log Out</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="logout-actions">
+                <button class="cancel-button" onclick="closeLogoutModal()">Cancel</button>
+                <button class="confirm-button" onclick="confirmLogout()">OK</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Logout Modal Functions ---
+        function openLogoutModal() {
+            document.getElementById("logoutModal").style.display = "flex";
+        }
+
+        function closeLogoutModal() {
+            document.getElementById("logoutModal").style.display = "none";
+        }
+
+        function confirmLogout() {
+            window.location.href = "../index.html";
+        }
+
+        // --- Notification Bell ---
+        function showMessage(message) {
+            alert(message);
+        }
+
+        // --- Save Profile ---
+        function saveProfile() {
+            const name = document.getElementById("adminName").value;
+            document.getElementById("profileDisplayName").textContent = name || "Admin";
+            alert("Admin profile saved successfully!");
+        }
+
+        // --- Save Apartment ---
+        function saveApartment() {
+            alert("Apartment information saved successfully!");
+        }
+
+        // --- Toggle Notifications ---
+        function toggleNotification(name, checkbox) {
+            const status = checkbox.checked ? "enabled" : "disabled";
+            // Optional: Uncomment the line below if you want an alert every time a toggle is switched
+            // alert(name + " " + status + ".");
+            console.log(name + " " + status);
+        }
+    </script>
+
+</body>
+</html>

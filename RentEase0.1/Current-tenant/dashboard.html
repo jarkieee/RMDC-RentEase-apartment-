@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEase - Tenant Dashboard</title>
+
+    <link rel="stylesheet" href="../css/tenant.css">                                                                                                    
+</head>
+
+
+
+<body>
+
+    <div class="tenant-layout">
+
+        <!-- SIDEBAR -->
+    <aside class="tenant-sidebar">
+
+        <div class="tenant-brand">
+            <div class="tenant-logo">🏠</div>
+            <div>
+                <h2>RentEase</h2>
+                <span>Current Tenant</span>
+            </div>
+        </div>
+
+        <div class="tenant-info">
+                <div class="profile-circle"></div>
+                <h3>Hello, Guest</h3>
+                <p>Current Tenant</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="tenant-dashboard.html" class="nav-item active">
+                    <span>📶</span>
+                    Dashboard
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <span>💳</span>
+                    Payments
+                </a>
+
+                <a href="maintenance.html" class="nav-item">
+                    <span>🔧</span>
+                    Maintenance
+                </a>
+
+                <a href="profile.html" class="nav-item">
+                    <span>👤</span>
+                    Profile
+                </a>
+
+                 <a href="settings.html" class="nav-item">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+                
+
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Welcome</h1>
+                    <p>Here's your rental information.</p>
+                </div>
+
+                <button class="notification-btn" title="Notifications">
+                    🔔
+                </button>
+
+            </header>
+
+
+            <!-- SUMMARY CARDS -->
+            <section class="summary-cards">
+
+                <div class="summary-card">
+                    <div class="card-label">Monthly Rent</div>
+                    <div class="card-value">₱ 3,500</div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-label">Next Payment Due</div>
+                    <div class="card-value small">
+                        September 22, 2026
+                    </div>
+                </div>
+
+                <div class="summary-card">
+                    <div class="card-label">Payment Status</div>
+
+                    <div class="status paid">
+                        Paid
+                    </div>
+
+                    <div class="card-date">
+                        August 22, 2026
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="section">
+
+                <h2>Quick Actions</h2>
+
+                <div class="quick-actions">
+
+                    <!-- PAYMENT STATUS -->
+                    <div class="action-card">
+
+                        <h3>Payment Status</h3>
+
+                        <div class="action-center">
+                            <div class="check-icon">✓</div>
+
+                            <strong>All caught up!</strong>
+
+                            <p>
+                                You have no outstanding payments
+                            </p>
+                        </div>
+
+                        <a href="payment-history.html"
+                           class="action-button">
+                            View Payment History
+                        </a>
+
+                    </div>
+
+
+                    <!-- MAINTENANCE -->
+                    <div class="action-card">
+
+                        <h3>Request Maintenance</h3>
+
+                        <div class="maintenance-item">
+                            <div>
+                                <strong>Leaky Faucet</strong>
+                                <span>August 4, 2026</span>
+                            </div>
+
+                            <span class="maintenance-status completed">
+                                Completed
+                            </span>
+                        </div>
+
+                        <div class="maintenance-item">
+                            <div>
+                                <strong>Electricity Breakdown</strong>
+                                <span>August 21, 2026</span>
+                            </div>
+
+                            <span class="maintenance-status progress">
+                                In Progress
+                            </span>
+                        </div>
+
+                        <a href="tenant-maintenance.html"
+                           class="view-link">
+                            View all requests
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEASE DOCUMENT -->
+            <section class="document-section">
+
+                <div>
+                    <h2>Lease Documents</h2>
+
+                    <div class="document-info">
+                        <div class="document-icon">
+                            📄
+                        </div>
+
+                        <div>
+                            <strong>Lease Contract Agreement</strong>
+
+                            <p>
+                                Signed on February 22, 2026
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="download-button">
+                    Download
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentEase - Login</title>
+
+    <style>
+        /* --- Global Resets & Fonts --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body.login-page {
+            /* Using a placeholder image that resembles the cityscape/apartment background */
+            background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* --- The Logo Outside the Card --- */
+        .external-logo {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .external-logo svg {
+            width: 80px;
+            height: 80px;
+            fill: #1a4b8c; /* Dark blue from logo */
+            stroke: #4da6ff; /* Light blue outline */
+            stroke-width: 2px;
+        }
+
+        .external-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .external-logo-text .rent {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a4b8c;
+            letter-spacing: -1px;
+            /* Text outline effect */
+            -webkit-text-stroke: 1px #4da6ff; 
+        }
+
+        .external-logo-text .ease {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -1px;
+            margin-left: 2px;
+            /* Text outline effect */
+            -webkit-text-stroke: 1px #4da6ff; 
+        }
+
+        .external-logo-text .apartment {
+            font-size: 1.2rem;
+            color: #1a4b8c;
+            font-weight: 500;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            -webkit-text-stroke: 0.5px #4da6ff;
+        }
+
+        /* --- The Glassmorphism Login Card --- */
+        .login-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* Shift the card slightly to the right to balance the logo on the left */
+            margin-left: 20%; 
+        }
+
+        .login-card {
+            background: rgba(220, 230, 245, 0.6); /* Light bluish translucent */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 12px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Hide the original logo and title inside the card since it's outside now */
+        .login-logo, .login-card h1, .login-subtitle {
+            display: none;
+        }
+
+        /* --- Form Elements --- */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        /* Hide labels as per the design */
+        .input-group label {
+            display: none;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .input-group input::placeholder {
+            color: #333; /* Darker placeholder text to match image */
+            font-weight: 400;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 0 2px #1a4b8c;
+        }
+
+        /* --- Options (Remember me / Forgot Password) --- */
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #111;
+        }
+
+        .login-options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .login-options input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .login-options a {
+            color: #111;
+            text-decoration: underline;
+        }
+
+        .login-options a:hover {
+            color: #1a4b8c;
+        }
+
+        /* --- Buttons --- */
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            background-color: #102a56; /* Dark navy blue */
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #0c1f40;
+        }
+
+        /* --- Divider --- */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #666;
+        }
+
+        .divider span {
+            padding: 0 15px;
+        }
+
+        /* --- Create Account Button --- */
+        .create-account-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: #209bf5; /* Bright blue */
+            color: #111;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .create-account-btn:hover {
+            background-color: #1a87d9;
+        }
+
+        /* Hide original elements that we've replaced */
+        .login-footer, 
+        .login-card > p:last-child { /* Hides the Back to Role Selection link */
+            display: none;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            .external-logo {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: none;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            body.login-page {
+                flex-direction: column;
+            }
+
+            .login-container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="login-page">
+
+    <!-- Logo positioned outside the card -->
+    <div class="external-logo">
+        <!-- Simple SVG representing the house logo -->
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10 L10 45 L20 45 L20 90 L45 90 L45 60 L55 60 L55 90 L80 90 L80 45 L90 45 Z" fill="#1a4b8c" stroke="#4da6ff" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <div class="external-logo-text">
+            <div style="display: flex;">
+                <span class="rent">Rent</span><span class="ease">Ease</span>
+            </div>
+            <span class="apartment">Apartment</span>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+
+            <!-- Hidden original logo/title -->
+            <div class="login-logo">🏠</div>
+            <h1>RentEase</h1>
+            <p class="login-subtitle" id="roleText">Login</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+
+                <div class="login-options">
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="login-button">
+                    Login
+                </button>
+
+                <!-- Added the 'or' divider and 'Create an Account' button as seen in the image -->
+                <div class="divider">
+                    <span>or</span>
+                </div>
+
+                <a href="create-account.html" class="create-account-btn">
+                    Create an Account
+                </a>
+
+            </form>
+
+            <!-- Hidden original footer/links -->
+            <p style="margin-top:20px;">
+                <a href="../index.html">← Back to Role Selection</a>
+            </p>
+            <p class="login-footer">© 2026 RentEase</p>
+
+        </div>
+    </div>
+
+    <script>
+        // GET ROLE FROM WELCOME PAGE
+        const urlParams = new URLSearchParams(window.location.search);
+        const role = urlParams.get("role");
+
+        // SHOW SELECTED ROLE
+        const roleText = document.getElementById("roleText");
+
+        if (role === "Admin") {
+            roleText.textContent = "Admin Login";
+        } else if (role === "current-tenant") {
+            roleText.textContent = "Current Tenant Login";
+        } else {
+            roleText.textContent = "Login";
+        }
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // ADMIN
+            if (role === "admin") {
+                window.location.href = "dashboard.html";
+            }
+            // CURRENT TENANT
+            else if (role === "current-tenant") {
+                window.location.href = "../Current-tenant/dashboard.html";
+            }
+             // prospective tenant
+            else if (role === "prospective-tenant") {
+                window.location.href = "../Prospective-tenant/dashboard.html";
+            }
+            // CURRENT TENANT
+            else if (role === "current-tenant") {
+                window.location.href = "../Current-tenant/dashboard.html";
+            }
+            // NO ROLE
+            else {
+                alert("Please select a role first.");
+                window.location.href = "index.html";
+            }
+        });
+    </script>
+
+</body>
+</html>
