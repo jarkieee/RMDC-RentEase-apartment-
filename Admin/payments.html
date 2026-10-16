@@ -39,122 +39,97 @@
         }
 
         /* --- Sidebar --- */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #1E293B;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
 
-    width: 240px;
-    height: 100vh;
+        /* --- Sidebar Profile --- */
+        .sidebar-top {
+            background: transparent;
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-    background: #1E293B;
-    color: white;
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+        }
 
-    display: flex;
-    flex-direction: column;
+        .profile-icon svg {
+            width: 40px;
+            height: 40px;
+        }
 
-    flex-shrink: 0;
-    z-index: 1000;
-}
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: white;
+        }
 
-/* --- Sidebar Profile --- */
-.sidebar-top {
-    background: transparent;
+        .profile-role {
+            font-size: 13px;
+            color: #CBD5E1;
+        }
 
-    padding: 25px 20px 20px;
+        /* --- Sidebar Navigation --- */
+        .sidebar-nav {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 13px 20px;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .nav-link:hover {
+            background: #334155;
+            color: white;
+        }
 
-.profile-icon {
-    width: 70px;
-    height: 70px;
-
-    background-color: #E2E8F0;
-
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 12px;
-
-    color: #475569;
-}
-
-.profile-icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-.profile-name {
-    font-size: 18px;
-    font-weight: 600;
-
-    margin-bottom: 4px;
-
-    color: white;
-}
-
-.profile-role {
-    font-size: 13px;
-    color: #CBD5E1;
-}
-
-/* --- Sidebar Navigation --- */
-.sidebar-nav {
-    padding: 15px 0;
-
-    display: flex;
-    flex-direction: column;
-
-    flex-grow: 1;
-
-    overflow-y: auto;
-
-    /* Hide scrollbar */
-    scrollbar-width: none; /* Firefox */
-     -ms-overflow-style: none; /* IE/Edge */
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-
-    padding: 13px 20px;
-
-    color: #CBD5E1;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    transition: 0.2s ease;
-}
-
-.nav-link:hover {
-    background: #334155;
-    color: white;
-}
-
-.nav-link.active {
-    background: #2563EB;
-    color: white;
-
-    font-weight: 600;
-}
+        .nav-link.active {
+            background: #2563EB;
+            color: white;
+            font-weight: 600;
+        }
 
         /* --- Main Content Area --- */
         .main-content {
-margin-left: 240px; /* Width of the sidebar */
-width: calc(100% - 240px);
-           flex-grow: 1;
-           display: flex;
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            flex-grow: 1;
+            display: flex;
             flex-direction: column;
             overflow-y: auto;
         }
@@ -191,7 +166,7 @@ width: calc(100% - 240px);
         /* Dashboard Content Area */
         .dashboard-content {
             padding: 30px 40px;
-            max-width: 1000px; /* Adjusted for a slightly tighter table layout */
+            max-width: 1000px;
             width: 100%;
             margin: 0 auto;
         }
@@ -218,13 +193,11 @@ width: calc(100% - 240px);
             border-right: none;
         }
 
-        .tab:hover {
-            color: var(--text-main);
-        }
+        .tab:hover { color: var(--text-main); }
 
         .tab.active {
             color: var(--text-main);
-            border-bottom: 2px solid #111827; /* Dark underline for active tab */
+            border-bottom: 2px solid #111827;
         }
 
         /* --- Table Container --- */
@@ -243,7 +216,6 @@ width: calc(100% - 240px);
             text-align: center;
         }
 
-        /* Table Headers */
         th {
             background-color: #ffffff;
             padding: 20px 15px;
@@ -254,11 +226,8 @@ width: calc(100% - 240px);
             border-right: 1px solid var(--border-color);
         }
 
-        th:last-child {
-            border-right: none;
-        }
+        th:last-child { border-right: none; }
 
-        /* Table Data */
         td {
             padding: 18px 15px;
             font-size: 0.95rem;
@@ -268,11 +237,8 @@ width: calc(100% - 240px);
             vertical-align: middle;
         }
 
-        td:last-child {
-            border-right: none;
-        }
+        td:last-child { border-right: none; }
 
-        /* Empty Rows for spacing (as seen in image) */
         .empty-row td {
             height: 55px;
             padding: 0;
@@ -288,8 +254,13 @@ width: calc(100% - 240px);
         }
 
         .badge-paid {
-            background-color: #d1fae5; /* Light green */
-            color: #10b981; /* Green text */
+            background-color: #d1fae5;
+            color: #10b981;
+        }
+
+        .badge-pending {
+            background-color: #fef3c7;
+            color: #d97706;
         }
 
         /* --- Action Buttons --- */
@@ -311,28 +282,89 @@ width: calc(100% - 240px);
             border-color: #2563eb;
         }
 
+        /* =========================================
+           NEW: MODAL STYLES
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 { font-size: 1.25rem; color: var(--text-main); }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .view-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .view-detail:last-child { border-bottom: none; }
+        .view-detail strong { color: var(--text-main); }
+        .view-detail span { color: var(--text-muted); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .layout {
-                flex-direction: column;
-                overflow-y: auto;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-            }
-            body {
-                overflow-y: auto;
-            }
-            .table-container {
-                overflow-x: auto; 
-            }
-            .topbar, .dashboard-content {
-                padding: 20px;
-            }
-            .tabs {
-                gap: 20px;
-            }
+            .layout { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; width: 100%; }
+            body { overflow-y: auto; }
+            .table-container { overflow-x: auto; }
+            .topbar, .dashboard-content { padding: 20px; }
+            .tabs { gap: 20px; }
         }
     </style>
 
@@ -345,7 +377,6 @@ width: calc(100% - 240px);
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            
             <div class="sidebar-top">
                 <div class="profile-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -366,7 +397,6 @@ width: calc(100% - 240px);
                 <a href="maintenance.html" class="nav-link"><span>🔧</span>Maintenance</a>
                 <a href="settings.html" class="nav-link"><span>⚙️</span>Settings</a>
             </nav>
-
         </aside>
 
 
@@ -387,8 +417,8 @@ width: calc(100% - 240px);
 
                 <!-- Tabs -->
                 <div class="tabs">
-                    <button class="tab active">All Payments</button>
-                    <button class="tab">Pending Payments (0)</button>
+                    <button class="tab active" onclick="switchTab('all', this)">All Payments</button>
+                    <button class="tab" onclick="switchTab('pending', this)">Pending Payments (<span id="pendingCount">0</span>)</button>
                 </div>
 
                 <!-- Data Table -->
@@ -404,31 +434,8 @@ width: calc(100% - 240px);
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Row 1 -->
-                            <tr>
-                                <td>3C</td>
-                                <td>Juan Cruz</td>
-                                <td>₱3,500</td>
-                                <td><span class="status-badge badge-paid">Paid</span></td>
-                                <td>Aug. 13, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Row 2 -->
-                            <tr>
-                                <td>4D</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>₱3,500</td>
-                                <td><span class="status-badge badge-paid">Paid</span></td>
-                                <td>Aug. 22, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Empty Rows to match the visual spacing in the screenshot -->
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tbody id="paymentsTableBody">
+                            <!-- Rows generated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
@@ -436,8 +443,142 @@ width: calc(100% - 240px);
             </section>
 
         </main>
-
     </div>
+
+    <!-- =========================================
+         MODAL: VIEW PAYMENT
+         ========================================= -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Payment Details</h2>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="view-detail"><strong>Unit:</strong> <span id="viewUnit"></span></div>
+                <div class="view-detail"><strong>Tenant:</strong> <span id="viewTenant"></span></div>
+                <div class="view-detail"><strong>Amount:</strong> <span id="viewAmount"></span></div>
+                <div class="view-detail"><strong>Status:</strong> <span id="viewStatus"></span></div>
+                <div class="view-detail"><strong>Date:</strong> <span id="viewDate"></span></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeViewModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================
+        // 1. DATA STORAGE
+        // =========================================
+        let paymentsData = [
+            { unit: "3C", tenant: "Juan Cruz", amount: "₱3,500", status: "Paid", date: "Aug. 13, 2026" },
+            { unit: "4D", tenant: "Juan Dela Cruz", amount: "₱3,500", status: "Paid", date: "Aug. 22, 2026" }
+        ];
+
+        // Add some dummy pending payments so the tab works
+        // (You can remove these two lines if you want to show 0 pending)
+        paymentsData.push({ unit: "1A", tenant: "Maria Santos", amount: "₱3,500", status: "Pending", date: "Sep. 1, 2026" });
+        paymentsData.push({ unit: "2B", tenant: "Pedro Reyes", amount: "₱3,500", status: "Pending", date: "Sep. 5, 2026" });
+
+        let currentFilter = 'all'; // 'all' or 'pending'
+
+        // =========================================
+        // 2. RENDER THE TABLE
+        // =========================================
+        function renderTable() {
+            const tbody = document.getElementById("paymentsTableBody");
+            tbody.innerHTML = "";
+
+            // Filter the data based on the current tab
+            const filteredData = currentFilter === 'all' 
+                ? paymentsData 
+                : paymentsData.filter(p => p.status === "Pending");
+
+            // Update the pending count on the tab
+            const pendingCount = paymentsData.filter(p => p.status === "Pending").length;
+            document.getElementById("pendingCount").textContent = pendingCount;
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="padding: 30px; color: #6b7280;">No payments found.</td></tr>`;
+                return;
+            }
+
+            filteredData.forEach((payment, index) => {
+                const row = document.createElement("tr");
+
+                // Determine badge class
+                const badgeClass = payment.status === "Paid" ? "badge-paid" : "badge-pending";
+
+                // Find the original index in the full array so the View button works correctly
+                const originalIndex = paymentsData.indexOf(payment);
+
+                row.innerHTML = `
+                    <td>${payment.unit}</td>
+                    <td>${payment.tenant}</td>
+                    <td>${payment.amount}</td>
+                    <td><span class="status-badge ${badgeClass}">${payment.status}</span></td>
+                    <td>${payment.date}</td>
+                    <td><button class="btn-view" onclick="openViewModal(${originalIndex})">View</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Add empty rows for visual spacing (only on 'All Payments' tab)
+            if (currentFilter === 'all') {
+                for (let i = 0; i < 3; i++) {
+                    const emptyRow = document.createElement("tr");
+                    emptyRow.className = "empty-row";
+                    emptyRow.innerHTML = `<td></td><td></td><td></td><td></td><td></td><td></td>`;
+                    tbody.appendChild(emptyRow);
+                }
+            }
+        }
+
+        // =========================================
+        // 3. TAB SWITCHING
+        // =========================================
+        function switchTab(filter, buttonElement) {
+            currentFilter = filter;
+            
+            // Update active state on buttons
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            // Re-render the table
+            renderTable();
+        }
+
+        // =========================================
+        // 4. VIEW LOGIC
+        // =========================================
+        const viewModal = document.getElementById("viewModal");
+
+        function openViewModal(index) {
+            const payment = paymentsData[index];
+            document.getElementById("viewUnit").textContent = payment.unit;
+            document.getElementById("viewTenant").textContent = payment.tenant;
+            document.getElementById("viewAmount").textContent = payment.amount;
+            document.getElementById("viewStatus").textContent = payment.status;
+            document.getElementById("viewDate").textContent = payment.date;
+            viewModal.style.display = "flex";
+        }
+
+        function closeViewModal() {
+            viewModal.style.display = "none";
+        }
+
+        // Close modal if user clicks outside the white box
+        window.onclick = function(event) {
+            if (event.target === viewModal) closeViewModal();
+        }
+
+        // Initialize table
+        renderTable();
+
+    </script>
 
 </body>
 </html>
