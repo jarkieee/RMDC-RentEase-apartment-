@@ -1,7 +1,7 @@
 # RMDC-RentEase-apartment-
 RentEase is a web-based apartment rental management system for RMDC designed to help apartment owners and tenants manage rental-related information, such as payment and viewing units to avail of prospective tenant
 
-#Project Objectives
+# Project Objectives
 * To keep apartment unit and tenant information organized in one website.
 * To help the admin manage rental information more easily.
 * To let current tenants check their payment and maintenance information.
