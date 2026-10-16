@@ -39,120 +39,95 @@
         }
 
        /* --- Sidebar --- */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #1E293B;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
 
-    width: 240px;
-    height: 100vh;
+        /* --- Sidebar Profile --- */
+        .sidebar-top {
+            background: transparent;
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-    background: #1E293B;
-    color: white;
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+        }
 
-    display: flex;
-    flex-direction: column;
+        .profile-icon svg {
+            width: 40px;
+            height: 40px;
+        }
 
-    flex-shrink: 0;
-    z-index: 1000;
-}
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: white;
+        }
 
-/* --- Sidebar Profile --- */
-.sidebar-top {
-    background: transparent;
+        .profile-role {
+            font-size: 13px;
+            color: #CBD5E1;
+        }
 
-    padding: 25px 20px 20px;
+        /* --- Sidebar Navigation --- */
+        .sidebar-nav {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 13px 20px;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .nav-link:hover {
+            background: #334155;
+            color: white;
+        }
 
-.profile-icon {
-    width: 70px;
-    height: 70px;
-
-    background-color: #E2E8F0;
-
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-bottom: 12px;
-
-    color: #475569;
-}
-
-.profile-icon svg {
-    width: 40px;
-    height: 40px;
-}
-
-.profile-name {
-    font-size: 18px;
-    font-weight: 600;
-
-    margin-bottom: 4px;
-
-    color: white;
-}
-
-.profile-role {
-    font-size: 13px;
-    color: #CBD5E1;
-}
-
-/* --- Sidebar Navigation --- */
-.sidebar-nav {
-    padding: 15px 0;
-
-    display: flex;
-    flex-direction: column;
-
-    flex-grow: 1;
-
-    overflow-y: auto;
-    /* Hide scrollbar */
-    scrollbar-width: none; /* Firefox */  
-     -ms-overflow-style: none; /* IE/Edge */
-}
-
-.nav-link {
-    display: flex;
-    align-items: center;
-
-    padding: 13px 20px;
-
-    color: #CBD5E1;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    transition: 0.2s ease;
-}
-
-.nav-link:hover {
-    background: #334155;
-    color: white;
-}
-
-.nav-link.active {
-    background: #2563EB;
-    color: white;
-
-    font-weight: 600;
-}
+        .nav-link.active {
+            background: #2563EB;
+            color: white;
+            font-weight: 600;
+        }
 
         /* --- Main Content Area --- */
         .main-content {
-           margin-left: 240px; /* Width of the sidebar */
+           margin-left: 240px;
            width: calc(100% - 240px);
-
            flex-grow: 1;
            display: flex;
             flex-direction: column;
@@ -212,7 +187,6 @@
             text-align: center;
         }
 
-        /* Table Headers */
         th {
             background-color: #ffffff;
             padding: 20px 15px;
@@ -223,11 +197,8 @@
             border-right: 1px solid var(--border-color);
         }
 
-        th:last-child {
-            border-right: none;
-        }
+        th:last-child { border-right: none; }
 
-        /* Table Data */
         td {
             padding: 18px 15px;
             font-size: 0.95rem;
@@ -236,31 +207,15 @@
             border-right: 1px solid var(--border-color);
         }
 
-        td:last-child {
-            border-right: none;
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
+        td:last-child { border-right: none; }
+        tr:last-child td { border-bottom: none; }
 
         /* Text Colors for Statuses */
-        .status-available {
-            color: #10b981; /* Green for Available */
-            font-weight: 500;
-        }
+        .status-available { color: #10b981; font-weight: 500; }
+        .status-active { color: #10b981; font-weight: 500; }
+        .status-inactive { color: #9ca3af; font-weight: 500; }
 
-        .status-active {
-            color: #10b981; /* Green for Active */
-            font-weight: 500;
-        }
-
-        .status-inactive {
-            color: #9ca3af; /* Gray for Inactive */
-            font-weight: 500;
-        }
-
-        /* Action Buttons (Eye, Edit) */
+        /* Action Buttons */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -281,23 +236,16 @@
             color: #6b7280;
         }
 
-        .btn-icon svg {
-            width: 18px;
-            height: 18px;
-        }
+        .btn-icon svg { width: 18px; height: 18px; }
 
-        /* Button Hover Colors */
         .btn-icon.view:hover { color: #2563eb; border-color: #2563eb; background-color: #eff6ff; }
         .btn-icon.edit:hover { color: #ea580c; border-color: #ea580c; background-color: #fff7ed; }
 
         /* --- Bottom Action Button (Add Tenant) --- */
-        .page-footer {
-            display: flex;
-            justify-content: flex-end;
-        }
+        .page-footer { display: flex; justify-content: flex-end; }
 
         .add-button {
-            background-color: #209bf5; /* Bright blue matching the image */
+            background-color: #209bf5;
             color: #111;
             border: none;
             padding: 12px 24px;
@@ -308,29 +256,123 @@
             transition: background-color 0.3s ease;
         }
 
-        .add-button:hover {
-            background-color: #1a87d9;
+        .add-button:hover { background-color: #1a87d9; }
+
+        /* =========================================
+           NEW: MODAL STYLES
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 { font-size: 1.25rem; color: var(--text-main); }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .modal-body .form-group { margin-bottom: 15px; }
+
+        .modal-body label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .modal-body input, .modal-body select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .modal-body input:focus { border-color: #2563eb; }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .btn-save {
+            background: #209bf5;
+            color: #111;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-save:hover { background: #1a87d9; }
+
+        .view-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .view-detail:last-child { border-bottom: none; }
+        .view-detail strong { color: var(--text-main); }
+        .view-detail span { color: var(--text-muted); }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .layout {
-                flex-direction: column;
-                overflow-y: auto;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-            }
-            body {
-                overflow-y: auto;
-            }
-            .table-container {
-                overflow-x: auto; /* Allow horizontal scroll on small screens */
-            }
-            .topbar, .dashboard-content {
-                padding: 20px;
-            }
+            .layout { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; width: 100%; }
+            body { overflow-y: auto; }
+            .table-container { overflow-x: auto; }
+            .topbar, .dashboard-content { padding: 20px; }
         }
     </style>
 
@@ -343,7 +385,6 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            
             <div class="sidebar-top">
                 <div class="profile-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -363,8 +404,7 @@
                 <a href="appointments.html" class="nav-link"><span>📅</span>Appointments</a>
                 <a href="maintenance.html" class="nav-link"><span>🔧</span>Maintenance</a>
                 <a href="settings.html" class="nav-link"><span>⚙️</span>Settings</a>
-                
-
+            </nav>
         </aside>
 
 
@@ -392,113 +432,213 @@
                                 <th>Tenant</th>
                                 <th>Move-in Date</th>
                                 <th>Status</th>
-                                <th></th> <!-- Empty header for Action buttons -->
+                                <th></th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Row 1 -->
-                            <tr>
-                                <td>Unit 1A</td>
-                                <td class="status-available">Available</td>
-                                <td></td>
-                                <td class="status-inactive">Inactive</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon view" title="View">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                        <button class="btn-icon edit" title="Edit">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Row 2 -->
-                            <tr>
-                                <td>Unit 2B</td>
-                                <td class="status-available">Available</td>
-                                <td></td>
-                                <td class="status-inactive">Inactive</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon view" title="View">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                        <button class="btn-icon edit" title="Edit">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Row 3 -->
-                            <tr>
-                                <td>Unit 3C</td>
-                                <td>Juan Cruz</td>
-                                <td>Mar. 13, 2025</td>
-                                <td class="status-active">Active</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon view" title="View">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                        <button class="btn-icon edit" title="Edit">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Row 4 -->
-                            <tr>
-                                <td>Unit 4D</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>Feb. 22, 2025</td>
-                                <td class="status-active">Active</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon view" title="View">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                        <button class="btn-icon edit" title="Edit">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Row 5 -->
-                            <tr>
-                                <td>Unit 5E</td>
-                                <td class="status-available">Available</td>
-                                <td></td>
-                                <td class="status-inactive">Inactive</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon view" title="View">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                        </button>
-                                        <button class="btn-icon edit" title="Edit">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+                        <tbody id="tenantsTableBody">
+                            <!-- Rows generated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Bottom Action Button -->
                 <div class="page-footer">
-                    <button class="add-button">Add Tenant</button>
+                    <button class="add-button" onclick="openAddModal()">Add Tenant</button>
                 </div>
 
             </section>
 
         </main>
-
     </div>
+
+    <!-- =========================================
+         MODAL: ADD / EDIT TENANT
+         ========================================= -->
+    <div class="modal-overlay" id="tenantModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Tenant</h2>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editIndex" value="-1">
+                
+                <div class="form-group">
+                    <label>Unit</label>
+                    <input type="text" id="tenantUnit" placeholder="e.g., Unit 6F">
+                </div>
+                <div class="form-group">
+                    <label>Tenant Name</label>
+                    <input type="text" id="tenantName" placeholder="e.g., Juan Dela Cruz">
+                </div>
+                <div class="form-group">
+                    <label>Move-in Date</label>
+                    <input type="text" id="tenantDate" placeholder="e.g., Jan. 1, 2026">
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="tenantStatus">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-save" onclick="saveTenant()">Save Tenant</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         MODAL: VIEW TENANT
+         ========================================= -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Tenant Details</h2>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="view-detail"><strong>Unit:</strong> <span id="viewTenantUnit"></span></div>
+                <div class="view-detail"><strong>Tenant:</strong> <span id="viewTenantName"></span></div>
+                <div class="view-detail"><strong>Move-in Date:</strong> <span id="viewTenantDate"></span></div>
+                <div class="view-detail"><strong>Status:</strong> <span id="viewTenantStatus"></span></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeViewModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================
+        // 1. DATA STORAGE
+        // =========================================
+        let tenantsData = [
+            { unit: "Unit 1A", name: "Available", date: "", status: "Inactive" },
+            { unit: "Unit 2B", name: "Available", date: "", status: "Inactive" },
+            { unit: "Unit 3C", name: "Juan Cruz", date: "Mar. 13, 2025", status: "Active" },
+            { unit: "Unit 4D", name: "Juan Dela Cruz", date: "Feb. 22, 2025", status: "Active" },
+            { unit: "Unit 5E", name: "Available", date: "", status: "Inactive" }
+        ];
+
+        // =========================================
+        // 2. RENDER THE TABLE
+        // =========================================
+        function renderTable() {
+            const tbody = document.getElementById("tenantsTableBody");
+            tbody.innerHTML = "";
+
+            tenantsData.forEach((tenant, index) => {
+                const row = document.createElement("tr");
+
+                // Determine classes for colors
+                const nameClass = tenant.name === "Available" ? "status-available" : "";
+                const statusClass = tenant.status === "Active" ? "status-active" : "status-inactive";
+
+                row.innerHTML = `
+                    <td>${tenant.unit}</td>
+                    <td class="${nameClass}">${tenant.name}</td>
+                    <td>${tenant.date}</td>
+                    <td class="${statusClass}">${tenant.status}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn-icon view" title="View" onclick="openViewModal(${index})">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            </button>
+                            <button class="btn-icon edit" title="Edit" onclick="openEditModal(${index})">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // =========================================
+        // 3. ADD / EDIT LOGIC
+        // =========================================
+        const tenantModal = document.getElementById("tenantModal");
+        const modalTitle = document.getElementById("modalTitle");
+        
+        function openAddModal() {
+            document.getElementById("editIndex").value = "-1";
+            document.getElementById("tenantUnit").value = "";
+            document.getElementById("tenantName").value = "";
+            document.getElementById("tenantDate").value = "";
+            document.getElementById("tenantStatus").value = "Active";
+            modalTitle.textContent = "Add New Tenant";
+            tenantModal.style.display = "flex";
+        }
+
+        function openEditModal(index) {
+            document.getElementById("editIndex").value = index;
+            document.getElementById("tenantUnit").value = tenantsData[index].unit;
+            document.getElementById("tenantName").value = tenantsData[index].name;
+            document.getElementById("tenantDate").value = tenantsData[index].date;
+            document.getElementById("tenantStatus").value = tenantsData[index].status;
+            modalTitle.textContent = "Edit Tenant";
+            tenantModal.style.display = "flex";
+        }
+
+        function closeModal() {
+            tenantModal.style.display = "none";
+        }
+
+        function saveTenant() {
+            const index = document.getElementById("editIndex").value;
+            const unit = document.getElementById("tenantUnit").value;
+            const name = document.getElementById("tenantName").value;
+            const date = document.getElementById("tenantDate").value;
+            const status = document.getElementById("tenantStatus").value;
+
+            if (!unit || !name) {
+                alert("Please fill in the Unit and Tenant Name.");
+                return;
+            }
+
+            const newTenant = { unit, name, date, status };
+
+            if (index === "-1") {
+                tenantsData.push(newTenant);
+            } else {
+                tenantsData[index] = newTenant;
+            }
+
+            renderTable();
+            closeModal();
+        }
+
+        // =========================================
+        // 4. VIEW LOGIC
+        // =========================================
+        const viewModal = document.getElementById("viewModal");
+
+        function openViewModal(index) {
+            document.getElementById("viewTenantUnit").textContent = tenantsData[index].unit;
+            document.getElementById("viewTenantName").textContent = tenantsData[index].name;
+            document.getElementById("viewTenantDate").textContent = tenantsData[index].date || "N/A";
+            document.getElementById("viewTenantStatus").textContent = tenantsData[index].status;
+            viewModal.style.display = "flex";
+        }
+
+        function closeViewModal() {
+            viewModal.style.display = "none";
+        }
+
+        // Close modal if user clicks outside the white box
+        window.onclick = function(event) {
+            if (event.target === tenantModal) closeModal();
+            if (event.target === viewModal) closeViewModal();
+        }
+
+        // Initialize table
+        renderTable();
+
+    </script>
 
 </body>
 </html>
