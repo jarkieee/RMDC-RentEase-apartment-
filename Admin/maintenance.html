@@ -38,104 +38,80 @@
             height: 100vh;
         }
 
-       /* --- Sidebar --- */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 240px;
-    height: 100vh;
-    background: #1E293B;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    z-index: 1000;
-}
+        /* --- Sidebar --- */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #1E293B;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
 
-.sidebar-top {
-    background: transparent;
-    padding: 25px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .sidebar-top {
+            background: transparent;
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-.profile-icon {
-    width: 70px;
-    height: 70px;
-    background-color: #E2E8F0;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 12px;
-    color: #475569;
-}
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+        }
 
-.profile-icon svg {
-    width: 40px;
-    height: 40px;
-}
+        .profile-icon svg { width: 40px; height: 40px; }
 
-.profile-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: white;
-}
+        .profile-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; color: white; }
+        .profile-role { font-size: 13px; color: #CBD5E1; }
 
-.profile-role {
-    font-size: 13px;
-    color: #CBD5E1;
-}
+        .sidebar-nav {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-.sidebar-nav {
-    padding: 15px 0;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow-y: auto;
-    /* Hide scrollbar */
-    scrollbar-width: none; /* Firefox */
-     -ms-overflow-style: none; /* IE/Edge */ 
-     
-}
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 13px 20px;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
 
-.nav-link {
-    display: flex;
-    align-items: center;
-    padding: 13px 20px;
-    color: #CBD5E1;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.2s ease;
-}
+        .nav-link:hover { background: #334155; color: white; }
+        .nav-link.active { background: #2563EB; color: white; font-weight: 600; }
 
-.nav-link:hover {
-    background: #334155;
-    color: white;
-}
+        /* --- Main Content Area --- */
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
 
-.nav-link.active {
-    background: #2563EB;
-    color: white;
-    font-weight: 600;
-}
-
-
-/* --- Main Content Area --- */
-.main-content {
-    margin-left: 240px;
-    width: calc(100% - 240px);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-        /* Topbar */
         .topbar {
             display: flex;
             justify-content: space-between;
@@ -145,24 +121,10 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .topbar h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
+        .topbar h1 { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
 
-        .notification {
-            cursor: pointer;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .notification svg {
-            width: 24px;
-            height: 24px;
-        }
+        .notification { cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; }
+        .notification svg { width: 24px; height: 24px; }
 
         /* Dashboard Content Area */
         .dashboard-content {
@@ -194,14 +156,8 @@
             border-right: none;
         }
 
-        .tab:hover {
-            color: var(--text-main);
-        }
-
-        .tab.active {
-            color: var(--text-main);
-            border-bottom: 2px solid #111827; 
-        }
+        .tab:hover { color: var(--text-main); }
+        .tab.active { color: var(--text-main); border-bottom: 2px solid #111827; }
 
         /* --- Table Container --- */
         .table-container {
@@ -213,13 +169,8 @@
             box-shadow: var(--card-shadow);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
 
-        /* Table Headers */
         th {
             background-color: #ffffff;
             padding: 20px 25px;
@@ -230,11 +181,8 @@
             border-right: 1px solid var(--border-color);
         }
 
-        th:last-child {
-            border-right: none;
-        }
+        th:last-child { border-right: none; }
 
-        /* Table Data */
         td {
             padding: 18px 25px;
             font-size: 0.9rem;
@@ -244,19 +192,14 @@
             vertical-align: middle;
         }
 
-        td:last-child {
-            border-right: none;
-        }
+        td:last-child { border-right: none; }
 
-        /* Empty Rows for spacing (as seen in image) */
         .empty-row td {
             height: 55px;
             padding: 0;
             border-right: 1px solid var(--border-color);
         }
-        .empty-row td:last-child {
-            border-right: none;
-        }
+        .empty-row td:last-child { border-right: none; }
 
         /* --- Status Badges --- */
         .status-badge {
@@ -268,14 +211,14 @@
         }
 
         .badge-in-progress {
-            background-color: #eff6ff; /* Light blue */
-            color: #2563eb; /* Blue text */
+            background-color: #eff6ff;
+            color: #2563eb;
             border: 1px solid #bfdbfe;
         }
 
         .badge-completed {
-            background-color: #d1fae5; /* Light green */
-            color: #10b981; /* Green text */
+            background-color: #d1fae5;
+            color: #10b981;
             border: 1px solid #a7f3d0;
         }
 
@@ -298,28 +241,101 @@
             border-color: #2563eb;
         }
 
+        /* =========================================
+           NEW: MODAL STYLES
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 { font-size: 1.25rem; color: var(--text-main); }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .view-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .view-detail:last-child { border-bottom: none; }
+        .view-detail strong { color: var(--text-main); }
+        .view-detail span { color: var(--text-muted); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .btn-action {
+            background: #209bf5;
+            color: #111;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-action:hover { background: #1a87d9; }
+
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .layout {
-                flex-direction: column;
-                overflow-y: auto;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-            }
-            body {
-                overflow-y: auto;
-            }
-            .table-container {
-                overflow-x: auto; 
-            }
-            .topbar, .dashboard-content {
-                padding: 20px;
-            }
-            .tabs {
-                gap: 20px;
-            }
+            .layout { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; width: 100%; }
+            body { overflow-y: auto; }
+            .table-container { overflow-x: auto; }
+            .topbar, .dashboard-content { padding: 20px; }
+            .tabs { gap: 20px; }
         }
     </style>
 
@@ -332,7 +348,6 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            
             <div class="sidebar-top">
                 <div class="profile-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -352,9 +367,7 @@
                 <a href="appointments.html" class="nav-link"><span>📅</span>Appointments</a>
                 <a href="maintenance.html" class="nav-link active"><span>🔧</span>Maintenance</a>
                 <a href="settings.html" class="nav-link"><span>⚙️</span>Settings</a>
-
             </nav>
-
         </aside>
 
 
@@ -375,9 +388,9 @@
 
                 <!-- Tabs -->
                 <div class="tabs">
-                    <button class="tab active">All Requests</button>
-                    <button class="tab">In Progress (1)</button>
-                    <button class="tab">Completed (3)</button>
+                    <button class="tab active" onclick="switchTab('all', this)">All Requests</button>
+                    <button class="tab" onclick="switchTab('progress', this)">In Progress (<span id="progressCount">0</span>)</button>
+                    <button class="tab" onclick="switchTab('completed', this)">Completed (<span id="completedCount">0</span>)</button>
                 </div>
 
                 <!-- Data Table -->
@@ -393,49 +406,8 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Row 1 -->
-                            <tr>
-                                <td>4D</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>Electricity Breakdown</td>
-                                <td><span class="status-badge badge-in-progress">In Progress</span></td>
-                                <td>Aug. 21, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Row 2 -->
-                            <tr>
-                                <td>4D</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>Leaky Faucet</td>
-                                <td><span class="status-badge badge-completed">Completed</span></td>
-                                <td>Aug. 4, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Row 3 -->
-                            <tr>
-                                <td>3C</td>
-                                <td>Juan Cruz</td>
-                                <td>Leaky Faucet</td>
-                                <td><span class="status-badge badge-completed">Completed</span></td>
-                                <td>Aug. 4, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Row 4 -->
-                            <tr>
-                                <td>4D</td>
-                                <td>Juan Dela Cruz</td>
-                                <td>Leaky Faucet</td>
-                                <td><span class="status-badge badge-completed">Completed</span></td>
-                                <td>Aug. 4, 2026</td>
-                                <td><button class="btn-view">View</button></td>
-                            </tr>
-
-                            <!-- Empty Row to match the visual spacing in the screenshot -->
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tbody id="maintenanceTableBody">
+                            <!-- Rows generated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
@@ -443,8 +415,169 @@
             </section>
 
         </main>
-
     </div>
+
+    <!-- =========================================
+         MODAL: VIEW MAINTENANCE REQUEST
+         ========================================= -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request Details</h2>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="view-detail"><strong>Unit:</strong> <span id="viewUnit"></span></div>
+                <div class="view-detail"><strong>Tenant:</strong> <span id="viewTenant"></span></div>
+                <div class="view-detail"><strong>Issue:</strong> <span id="viewIssue"></span></div>
+                <div class="view-detail"><strong>Date Reported:</strong> <span id="viewDate"></span></div>
+                <div class="view-detail"><strong>Status:</strong> <span id="viewStatus"></span></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeViewModal()">Close</button>
+                <button class="btn-action" id="statusActionBtn" onclick="toggleStatus()">Mark as Completed</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================
+        // 1. DATA STORAGE
+        // =========================================
+        let maintenanceData = [
+            { unit: "4D", tenant: "Juan Dela Cruz", issue: "Electricity Breakdown", status: "In Progress", date: "Aug. 21, 2026" },
+            { unit: "4D", tenant: "Juan Dela Cruz", issue: "Leaky Faucet", status: "Completed", date: "Aug. 4, 2026" },
+            { unit: "3C", tenant: "Juan Cruz", issue: "Leaky Faucet", status: "Completed", date: "Aug. 4, 2026" },
+            { unit: "4D", tenant: "Juan Dela Cruz", issue: "Leaky Faucet", status: "Completed", date: "Aug. 4, 2026" }
+        ];
+
+        let currentFilter = 'all';
+        let currentViewIndex = -1; // Track which item is currently open in the modal
+
+        // =========================================
+        // 2. RENDER THE TABLE
+        // =========================================
+        function renderTable() {
+            const tbody = document.getElementById("maintenanceTableBody");
+            tbody.innerHTML = "";
+
+            // Filter data
+            const filteredData = maintenanceData.filter(item => {
+                if (currentFilter === 'progress') return item.status === "In Progress";
+                if (currentFilter === 'completed') return item.status === "Completed";
+                return true; // 'all'
+            });
+
+            // Update Counts
+            const progressCount = maintenanceData.filter(m => m.status === "In Progress").length;
+            const completedCount = maintenanceData.filter(m => m.status === "Completed").length;
+            document.getElementById("progressCount").textContent = progressCount;
+            document.getElementById("completedCount").textContent = completedCount;
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="padding: 30px; color: #6b7280; text-align: center;">No requests found.</td></tr>`;
+                return;
+            }
+
+            filteredData.forEach((item) => {
+                const row = document.createElement("tr");
+                const originalIndex = maintenanceData.indexOf(item);
+                
+                const badgeClass = item.status === "In Progress" ? "badge-in-progress" : "badge-completed";
+
+                row.innerHTML = `
+                    <td>${item.unit}</td>
+                    <td>${item.tenant}</td>
+                    <td>${item.issue}</td>
+                    <td><span class="status-badge ${badgeClass}">${item.status}</span></td>
+                    <td>${item.date}</td>
+                    <td><button class="btn-view" onclick="openViewModal(${originalIndex})">View</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Add an empty row for spacing if on 'all' tab
+            if (currentFilter === 'all' && filteredData.length > 0) {
+                const emptyRow = document.createElement("tr");
+                emptyRow.className = "empty-row";
+                emptyRow.innerHTML = `<td></td><td></td><td></td><td></td><td></td><td></td>`;
+                tbody.appendChild(emptyRow);
+            }
+        }
+
+        // =========================================
+        // 3. TAB SWITCHING
+        // =========================================
+        function switchTab(filter, buttonElement) {
+            currentFilter = filter;
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            renderTable();
+        }
+
+        // =========================================
+        // 4. VIEW & STATUS UPDATE LOGIC
+        // =========================================
+        const viewModal = document.getElementById("viewModal");
+        const statusActionBtn = document.getElementById("statusActionBtn");
+
+        function openViewModal(index) {
+            currentViewIndex = index;
+            const item = maintenanceData[index];
+            
+            document.getElementById("viewUnit").textContent = item.unit;
+            document.getElementById("viewTenant").textContent = item.tenant;
+            document.getElementById("viewIssue").textContent = item.issue;
+            document.getElementById("viewDate").textContent = item.date;
+            document.getElementById("viewStatus").textContent = item.status;
+
+            // Update button text based on current status
+            if (item.status === "In Progress") {
+                statusActionBtn.textContent = "Mark as Completed";
+                statusActionBtn.style.background = "#10b981"; // Green
+                statusActionBtn.style.color = "white";
+            } else {
+                statusActionBtn.textContent = "Mark as In Progress";
+                statusActionBtn.style.background = "#209bf5"; // Blue
+                statusActionBtn.style.color = "#111";
+            }
+
+            viewModal.style.display = "flex";
+        }
+
+        function toggleStatus() {
+            if (currentViewIndex === -1) return;
+
+            const item = maintenanceData[currentViewIndex];
+            
+            if (item.status === "In Progress") {
+                item.status = "Completed";
+            } else {
+                item.status = "In Progress";
+            }
+
+            renderTable(); // Re-render table to show new status
+            closeViewModal();
+        }
+
+        function closeViewModal() {
+            viewModal.style.display = "none";
+            currentViewIndex = -1;
+        }
+
+        // Close modal if user clicks outside
+        window.onclick = function(event) {
+            if (event.target === viewModal) closeViewModal();
+        }
+
+        // Initialize table
+        renderTable();
+
+    </script>
 
 </body>
 </html>
