@@ -1,416 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>RentEase - Payments</title>
+    
+    <style>
+        /* --- Global Resets & Variables --- */
+        :root {
+            --sidebar-dark: #0f223f;
+            --sidebar-light: #133261;
+            --sidebar-active: #0a4da3;
+            --bg-color: #f4f6f9;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
 
-    <link rel="stylesheet" href="../css/tenant.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Layout --- */
+        .layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* --- Sidebar --- */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #1E293B;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
+
+        /* --- Sidebar Profile --- */
+        .sidebar-top {
+            background: transparent;
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+        }
+
+        .profile-icon svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: white;
+        }
+
+        .profile-role {
+            font-size: 13px;
+            color: #CBD5E1;
+        }
+
+        /* --- Sidebar Navigation --- */
+        .sidebar-nav {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 13px 20px;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background: #334155;
+            color: white;
+        }
+
+        .nav-link.active {
+            background: #2563EB;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        /* Topbar */
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .topbar h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .notification {
+            cursor: pointer;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .notification svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Dashboard Content Area */
+        .dashboard-content {
+            padding: 30px 40px;
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* --- Tabs Navigation --- */
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            gap: 40px;
+        }
+
+        .tab {
+            padding: 10px 0;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            background: none;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .tab:hover { color: var(--text-main); }
+
+        .tab.active {
+            color: var(--text-main);
+            border-bottom: 2px solid #111827;
+        }
+
+        /* --- Table Container --- */
+        .table-container {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden; 
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffffff;
+            padding: 20px 15px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+        }
+
+        th:last-child { border-right: none; }
+
+        td {
+            padding: 18px 15px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        td:last-child { border-right: none; }
+
+        .empty-row td {
+            height: 55px;
+            padding: 0;
+        }
+
+        /* --- Status Badges --- */
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .badge-paid {
+            background-color: #d1fae5;
+            color: #10b981;
+        }
+
+        .badge-pending {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        /* --- Action Buttons --- */
+        .btn-view {
+            background-color: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+            padding: 6px 18px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-view:hover {
+            background-color: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        /* =========================================
+           NEW: MODAL STYLES
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 { font-size: 1.25rem; color: var(--text-main); }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .view-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .view-detail:last-child { border-bottom: none; }
+        .view-detail strong { color: var(--text-main); }
+        .view-detail span { color: var(--text-muted); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .layout { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; width: 100%; }
+            body { overflow-y: auto; }
+            .table-container { overflow-x: auto; }
+            .topbar, .dashboard-content { padding: 20px; }
+            .tabs { gap: 20px; }
+        }
+    </style>
+
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
 
-<div class="tenant-layout">
+    <div class="layout">
 
-    <!-- SIDEBAR -->
-    <aside class="tenant-sidebar">
-
-        <div class="tenant-brand">
-            <div class="tenant-logo">🏠</div>
-            <div>
-                <h2>RentEase</h2>
-                <span>Current Tenant</span>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-top">
+                <div class="profile-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </div>
+                <h3 class="profile-name">RMDC</h3>
+                <p class="profile-role">Admin</p>
             </div>
-        </div>
 
-        <div class="tenant-info">
-                <div class="profile-circle"></div>
-                <h3>Hello, Guest</h3>
-                <p>Current Tenant</p>
-            </div>
-        
-        <nav class="tenant-nav">
-
-            <a href="dashboard.html">
-                <span class="tenant-icon">📶</span>
-                Dashboard
-            </a>
-
-            <a href="payments.html" class="active">
-                <span class="tenant-icon">💳</span>
-                Payments
-            </a>
-
-            <a href="maintenance.html">
-                <span class="tenant-icon">🔧</span>
-                Maintenance
-            </a>
-
-            <a href="profile.html">
-                <span class="tenant-icon">👤</span>
-                Profile
-            </a>
-
-             <a href="settings.html" class="nav-item">
-                    <span>⚙️</span>
-                    Settings
-                </a>
-
-        </nav>
-
-    </aside>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">  <span>📶</span>Dashboard</a>
+                <a href="units.html" class="nav-link"><span>🏠</span>Units</a>
+                <a href="tenants.html" class="nav-link"><span>👥</span>Tenants</a>
+                <a href="payments.html" class="nav-link active"><span>💳</span>Payments</a>
+                <a href="appointments.html" class="nav-link"><span>📅</span>Appointments</a>
+                <a href="maintenance.html" class="nav-link"><span>🔧</span>Maintenance</a>
+                <a href="settings.html" class="nav-link"><span>⚙️</span>Settings</a>
+            </nav>
+        </aside>
 
 
-    <!-- MAIN -->
-    <main class="tenant-main">
+        <!-- Main Content -->
+        <main class="main-content">
 
-        <!-- TOPBAR -->
-        <header class="tenant-topbar">
-
-            <div>
+            <header class="topbar">
                 <h1>Payments</h1>
-            </div>
+                <div class="notification">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                </div>
+            </header>
 
-            <button
-                class="tenant-notification"
-                onclick="showNotification()">
-                🔔
-            </button>
+            <section class="dashboard-content">
 
-        </header>
-
-
-        <!-- CONTENT -->
-        <section class="tenant-content">
-
-            <div class="tenant-welcome">
-
-                <h2>Rental Payment</h2>
-
-                <p>
-                    View your current payment information and
-                    rental payment history.
-                </p>
-
-            </div>
-
-
-            <!-- PAYMENT SUMMARY -->
-            <div class="tenant-cards">
-
-                <div class="tenant-card">
-
-                    <div class="tenant-stat">
-
-                        <div class="tenant-stat-icon">
-                            ₱
-                        </div>
-
-                        <div>
-
-                            <div class="tenant-stat-label">
-                                Monthly Rent
-                            </div>
-
-                            <div class="tenant-stat-value">
-                                ₱3,500
-                            </div>
-
-                        </div>
-
-                    </div>
-
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab('all', this)">All Payments</button>
+                    <button class="tab" onclick="switchTab('pending', this)">Pending Payments (<span id="pendingCount">0</span>)</button>
                 </div>
 
-
-                <div class="tenant-card">
-
-                    <div class="tenant-stat">
-
-                        <div class="tenant-stat-icon">
-                            📅
-                        </div>
-
-                        <div>
-
-                            <div class="tenant-stat-label">
-                                Next Payment Due
-                            </div>
-
-                            <div class="tenant-stat-value"
-                                 style="font-size:17px;">
-                                Sept. 22, 2026
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="tenant-card">
-
-                    <div class="tenant-stat">
-
-                        <div class="tenant-stat-icon">
-                            ✓
-                        </div>
-
-                        <div>
-
-                            <div class="tenant-stat-label">
-                                Payment Status
-                            </div>
-
-                            <div class="tenant-status">
-                                Paid
-                            </div>
-
-                            <div class="tenant-stat-note">
-                                Last payment: Aug. 22, 2026
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CURRENT PAYMENT -->
-            <h2 class="tenant-section-title">
-                Current Payment
-            </h2>
-
-            <div class="tenant-box">
-
-                <table class="tenant-table">
-
-                    <tr>
-                        <th>Payment Description</th>
-                        <td>September 2026 Rent</td>
-                    </tr>
-
-                    <tr>
-                        <th>Amount</th>
-                        <td>₱3,500</td>
-                    </tr>
-
-                    <tr>
-                        <th>Due Date</th>
-                        <td>September 22, 2026</td>
-                    </tr>
-
-                    <tr>
-                        <th>Status</th>
-                        <td>
-                            <span class="tenant-status">
-                                Paid
-                            </span>
-                        </td>
-                    </tr>
-
-                </table>
-
-            </div>
-
-
-            <!-- PAYMENT HISTORY -->
-            <div style="margin-top:25px;">
-
-                <div style="
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    margin-bottom:13px;
-                ">
-
-                    <h2 class="tenant-section-title"
-                        style="margin:0;">
-                        Recent Payment History
-                    </h2>
-
-                    <a
-                        href="payment-history.html"
-                        class="tenant-btn"
-                        style="text-decoration:none;">
-                        View All
-                    </a>
-
-                </div>
-
-
-                <div class="tenant-box">
-
-                    <table class="tenant-table">
-
+                <!-- Data Table -->
+                <div class="table-container">
+                    <table>
                         <thead>
-
                             <tr>
-                                <th>Date</th>
-                                <th>Description</th>
+                                <th>Unit</th>
+                                <th>Tenant</th>
                                 <th>Amount</th>
                                 <th>Status</th>
+                                <th>Date</th>
+                                <th>Action</th>
                             </tr>
-
                         </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>
-                                    Aug. 22, 2026
-                                </td>
-
-                                <td>
-                                    August 2026 Rent
-                                </td>
-
-                                <td>
-                                    ₱3,500
-                                </td>
-
-                                <td>
-                                    <span class="tenant-status">
-                                        Paid
-                                    </span>
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    July 22, 2026
-                                </td>
-
-                                <td>
-                                    July 2026 Rent
-                                </td>
-
-                                <td>
-                                    ₱3,500
-                                </td>
-
-                                <td>
-                                    <span class="tenant-status">
-                                        Paid
-                                    </span>
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>
-                                    June 22, 2026
-                                </td>
-
-                                <td>
-                                    June 2026 Rent
-                                </td>
-
-                                <td>
-                                    ₱3,500
-                                </td>
-
-                                <td>
-                                    <span class="tenant-status">
-                                        Paid
-                                    </span>
-                                </td>
-
-                            </tr>
-
+                        <tbody id="paymentsTableBody">
+                            <!-- Rows generated by JavaScript -->
                         </tbody>
-
                     </table>
-
                 </div>
 
+            </section>
+
+        </main>
+    </div>
+
+    <!-- =========================================
+         MODAL: VIEW PAYMENT
+         ========================================= -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Payment Details</h2>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
             </div>
-
-
-            <!-- PAYMENT METHOD -->
-            <div style="margin-top:25px;">
-
-                <h2 class="tenant-section-title">
-                    Payment Method
-                </h2>
-
-                <div class="tenant-box">
-
-                    <div style="
-                        display:flex;
-                        justify-content:space-between;
-                        align-items:center;
-                        gap:20px;
-                    ">
-
-                        <div>
-
-                            <strong>
-                                GCash
-                            </strong>
-
-                            <p style="
-                                color:#6b7280;
-                                font-size:12px;
-                                margin-top:5px;
-                            ">
-                                Pay your monthly rent through
-                                the registered GCash account.
-                            </p>
-
-                        </div>
-
-                        <button
-                            class="tenant-btn tenant-btn-primary"
-                            onclick="makePayment()">
-                            Make Payment
-                        </button>
-
-                    </div>
-
-                </div>
-
+            <div class="modal-body">
+                <div class="view-detail"><strong>Unit:</strong> <span id="viewUnit"></span></div>
+                <div class="view-detail"><strong>Tenant:</strong> <span id="viewTenant"></span></div>
+                <div class="view-detail"><strong>Amount:</strong> <span id="viewAmount"></span></div>
+                <div class="view-detail"><strong>Status:</strong> <span id="viewStatus"></span></div>
+                <div class="view-detail"><strong>Date:</strong> <span id="viewDate"></span></div>
             </div>
-
-        </section>
-
-    </main>
-
-</div>
-
-
-<script>
-
-function showNotification() {
-
-    alert("You have no new notifications.");
-
-}
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeViewModal()">Close</button>
+            </div>
+        </div>
+    </div>
 
 
-function makePayment() {
+    <script>
+        // =========================================
+        // 1. DATA STORAGE
+        // =========================================
+        let paymentsData = [
+            { unit: "3C", tenant: "Juan Cruz", amount: "₱3,500", status: "Paid", date: "Aug. 13, 2026" },
+            { unit: "4D", tenant: "Juan Dela Cruz", amount: "₱3,500", status: "Paid", date: "Aug. 22, 2026" }
+        ];
 
-    alert(
-        "Online payment is for demonstration only.\n\n" +
-        "Payment amount: ₱3,500\n" +
-        "Payment method: GCash"
-    );
+        // Add some dummy pending payments so the tab works
+        // (You can remove these two lines if you want to show 0 pending)
+        paymentsData.push({ unit: "1A", tenant: "Maria Santos", amount: "₱3,500", status: "Pending", date: "Sep. 1, 2026" });
+        paymentsData.push({ unit: "2B", tenant: "Pedro Reyes", amount: "₱3,500", status: "Pending", date: "Sep. 5, 2026" });
 
-}
+        let currentFilter = 'all'; // 'all' or 'pending'
 
-</script>
+        // =========================================
+        // 2. RENDER THE TABLE
+        // =========================================
+        function renderTable() {
+            const tbody = document.getElementById("paymentsTableBody");
+            tbody.innerHTML = "";
+
+            // Filter the data based on the current tab
+            const filteredData = currentFilter === 'all' 
+                ? paymentsData 
+                : paymentsData.filter(p => p.status === "Pending");
+
+            // Update the pending count on the tab
+            const pendingCount = paymentsData.filter(p => p.status === "Pending").length;
+            document.getElementById("pendingCount").textContent = pendingCount;
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" style="padding: 30px; color: #6b7280;">No payments found.</td></tr>`;
+                return;
+            }
+
+            filteredData.forEach((payment, index) => {
+                const row = document.createElement("tr");
+
+                // Determine badge class
+                const badgeClass = payment.status === "Paid" ? "badge-paid" : "badge-pending";
+
+                // Find the original index in the full array so the View button works correctly
+                const originalIndex = paymentsData.indexOf(payment);
+
+                row.innerHTML = `
+                    <td>${payment.unit}</td>
+                    <td>${payment.tenant}</td>
+                    <td>${payment.amount}</td>
+                    <td><span class="status-badge ${badgeClass}">${payment.status}</span></td>
+                    <td>${payment.date}</td>
+                    <td><button class="btn-view" onclick="openViewModal(${originalIndex})">View</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Add empty rows for visual spacing (only on 'All Payments' tab)
+            if (currentFilter === 'all') {
+                for (let i = 0; i < 3; i++) {
+                    const emptyRow = document.createElement("tr");
+                    emptyRow.className = "empty-row";
+                    emptyRow.innerHTML = `<td></td><td></td><td></td><td></td><td></td><td></td>`;
+                    tbody.appendChild(emptyRow);
+                }
+            }
+        }
+
+        // =========================================
+        // 3. TAB SWITCHING
+        // =========================================
+        function switchTab(filter, buttonElement) {
+            currentFilter = filter;
+            
+            // Update active state on buttons
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            // Re-render the table
+            renderTable();
+        }
+
+        // =========================================
+        // 4. VIEW LOGIC
+        // =========================================
+        const viewModal = document.getElementById("viewModal");
+
+        function openViewModal(index) {
+            const payment = paymentsData[index];
+            document.getElementById("viewUnit").textContent = payment.unit;
+            document.getElementById("viewTenant").textContent = payment.tenant;
+            document.getElementById("viewAmount").textContent = payment.amount;
+            document.getElementById("viewStatus").textContent = payment.status;
+            document.getElementById("viewDate").textContent = payment.date;
+            viewModal.style.display = "flex";
+        }
+
+        function closeViewModal() {
+            viewModal.style.display = "none";
+        }
+
+        // Close modal if user clicks outside the white box
+        window.onclick = function(event) {
+            if (event.target === viewModal) closeViewModal();
+        }
+
+        // Initialize table
+        renderTable();
+
+    </script>
 
 </body>
 </html>
