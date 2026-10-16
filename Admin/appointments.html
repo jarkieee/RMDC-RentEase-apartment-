@@ -39,103 +39,79 @@
         }
 
         /* --- Sidebar --- */
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 240px;
-    height: 100vh;
-    background: #1E293B;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    z-index: 1000;
-}
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 240px;
+            height: 100vh;
+            background: #1E293B;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            z-index: 1000;
+        }
 
-.sidebar-top {
-    background: transparent;
-    padding: 25px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
+        .sidebar-top {
+            background: transparent;
+            padding: 25px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-.profile-icon {
-    width: 70px;
-    height: 70px;
-    background-color: #E2E8F0;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 12px;
-    color: #475569;
-}
+        .profile-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #E2E8F0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #475569;
+        }
 
-.profile-icon svg {
-    width: 40px;
-    height: 40px;
-}
+        .profile-icon svg { width: 40px; height: 40px; }
 
-.profile-name {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 4px;
-    color: white;
-}
+        .profile-name { font-size: 18px; font-weight: 600; margin-bottom: 4px; color: white; }
+        .profile-role { font-size: 13px; color: #CBD5E1; }
 
-.profile-role {
-    font-size: 13px;
-    color: #CBD5E1;
-}
+        .sidebar-nav {
+            padding: 15px 0;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
 
-.sidebar-nav {
-    padding: 15px 0;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow-y: auto;
-    /* Hide scrollbar */
-    scrollbar-width: none; /* Firefox */
-     -ms-overflow-style: none; /* IE/Edge */ 
-     
-}
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 13px 20px;
+            color: #CBD5E1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
 
-.nav-link {
-    display: flex;
-    align-items: center;
-    padding: 13px 20px;
-    color: #CBD5E1;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.2s ease;
-}
+        .nav-link:hover { background: #334155; color: white; }
+        .nav-link.active { background: #2563EB; color: white; font-weight: 600; }
 
-.nav-link:hover {
-    background: #334155;
-    color: white;
-}
+        /* --- Main Content --- */
+        .main-content {
+            margin-left: 240px;
+            width: calc(100% - 240px);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
 
-.nav-link.active {
-    background: #2563EB;
-    color: white;
-    font-weight: 600;
-}
-
-
-/* --- Main Content --- */
-.main-content {
-    margin-left: 240px;
-    width: calc(100% - 240px);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-        /* Topbar */
         .topbar {
             display: flex;
             justify-content: space-between;
@@ -145,24 +121,10 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .topbar h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-        }
+        .topbar h1 { font-size: 1.5rem; font-weight: 700; color: var(--text-main); }
 
-        .notification {
-            cursor: pointer;
-            color: var(--text-main);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .notification svg {
-            width: 24px;
-            height: 24px;
-        }
+        .notification { cursor: pointer; color: var(--text-main); display: flex; align-items: center; justify-content: center; }
+        .notification svg { width: 24px; height: 24px; }
 
         /* Dashboard Content Area */
         .dashboard-content {
@@ -194,14 +156,8 @@
             border-right: none;
         }
 
-        .tab:hover {
-            color: var(--text-main);
-        }
-
-        .tab.active {
-            color: var(--text-main);
-            border-bottom: 2px solid #111827; 
-        }
+        .tab:hover { color: var(--text-main); }
+        .tab.active { color: var(--text-main); border-bottom: 2px solid #111827; }
 
         /* --- Table Container --- */
         .table-container {
@@ -213,13 +169,8 @@
             box-shadow: var(--card-shadow);
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
+        table { width: 100%; border-collapse: collapse; text-align: left; }
 
-        /* Table Headers */
         th {
             background-color: #ffffff;
             padding: 20px 25px;
@@ -230,11 +181,8 @@
             border-right: 1px solid var(--border-color);
         }
 
-        th:last-child {
-            border-right: none;
-        }
+        th:last-child { border-right: none; }
 
-        /* Table Data */
         td {
             padding: 18px 25px;
             font-size: 0.9rem;
@@ -244,36 +192,37 @@
             vertical-align: middle;
         }
 
-        td:last-child {
-            border-right: none;
-        }
+        td:last-child { border-right: none; }
 
-        /* Empty Rows for spacing (as seen in image) */
         .empty-row td {
             height: 60px;
             padding: 0;
             border-right: 1px solid var(--border-color);
         }
-        .empty-row td:last-child {
-            border-right: none;
-        }
+        .empty-row td:last-child { border-right: none; }
 
         /* --- Status Badges --- */
         .status-badge {
             display: inline-block;
             padding: 6px 16px;
-            border-radius: 6px; /* Slightly less rounded than payments */
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 500;
         }
 
         .badge-pending {
-            background-color: #fffbeb; /* Light yellow */
-            color: #d97706; /* Orange text */
+            background-color: #fffbeb;
+            color: #d97706;
             border: 1px solid #fde68a;
         }
 
-        /* --- Action Buttons (Check / Cross) --- */
+        .badge-approved {
+            background-color: #d1fae5;
+            color: #10b981;
+            border: 1px solid #a7f3d0;
+        }
+
+        /* --- Action Buttons --- */
         .action-buttons {
             display: flex;
             gap: 12px;
@@ -292,53 +241,110 @@
             transition: all 0.2s ease;
         }
 
-        .btn-icon svg {
-            width: 18px;
-            height: 18px;
+        .btn-icon svg { width: 18px; height: 18px; }
+
+        .btn-approve { border: 1px solid #10b981; color: #10b981; }
+        .btn-approve:hover { background-color: #10b981; color: white; }
+
+        .btn-reject { border: 1px solid #ef4444; color: #ef4444; }
+        .btn-reject:hover { background-color: #ef4444; color: white; }
+
+        .btn-view {
+            background-color: #eff6ff;
+            color: #2563eb;
+            border: 1px solid #bfdbfe;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .btn-view:hover { background-color: #2563eb; color: white; }
+
+        /* =========================================
+           NEW: MODAL STYLES
+           ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
 
-        /* Approve (Check) Button */
-        .btn-approve {
-            border: 1px solid #10b981;
-            color: #10b981;
-        }
-        .btn-approve:hover {
-            background-color: #10b981;
-            color: white;
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease;
         }
 
-        /* Reject (Cross) Button */
-        .btn-reject {
-            border: 1px solid #ef4444;
-            color: #ef4444;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .btn-reject:hover {
-            background-color: #ef4444;
-            color: white;
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 { font-size: 1.25rem; color: var(--text-main); }
+
+        .close-modal {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+        }
+
+        .view-detail {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .view-detail:last-child { border-bottom: none; }
+        .view-detail strong { color: var(--text-main); }
+        .view-detail span { color: var(--text-muted); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 25px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
         }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
-            .layout {
-                flex-direction: column;
-                overflow-y: auto;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-            }
-            body {
-                overflow-y: auto;
-            }
-            .table-container {
-                overflow-x: auto; 
-            }
-            .topbar, .dashboard-content {
-                padding: 20px;
-            }
-            .tabs {
-                gap: 20px;
-            }
+            .layout { flex-direction: column; overflow-y: auto; }
+            .sidebar { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; width: 100%; }
+            body { overflow-y: auto; }
+            .table-container { overflow-x: auto; }
+            .topbar, .dashboard-content { padding: 20px; }
+            .tabs { gap: 20px; }
         }
     </style>
 
@@ -351,7 +357,6 @@
 
         <!-- Sidebar -->
         <aside class="sidebar">
-            
             <div class="sidebar-top">
                 <div class="profile-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -364,10 +369,7 @@
             </div>
 
             <nav class="sidebar-nav">
-                <a href="dashboard.html" class="nav-link">
-                      <span>📶</span>
-                      Dashboard
-                    </a>
+                <a href="dashboard.html" class="nav-link"><span>📶</span>Dashboard</a>
                 <a href="units.html" class="nav-link"><span>🏠</span>Units</a>
                 <a href="tenants.html" class="nav-link"><span>👥</span>Tenants</a>
                 <a href="payments.html" class="nav-link"><span>💳</span>Payments</a>
@@ -375,7 +377,6 @@
                 <a href="maintenance.html" class="nav-link"><span>🔧</span>Maintenance</a>
                 <a href="settings.html" class="nav-link"><span>⚙️</span>Settings</a>
             </nav>
-
         </aside>
 
 
@@ -396,8 +397,8 @@
 
                 <!-- Tabs -->
                 <div class="tabs">
-                    <button class="tab active">Upcoming (1)</button>
-                    <button class="tab">Pending (0)</button>
+                    <button class="tab active" onclick="switchTab('upcoming', this)">Upcoming (<span id="upcomingCount">0</span>)</button>
+                    <button class="tab" onclick="switchTab('pending', this)">Pending (<span id="pendingCount">0</span>)</button>
                 </div>
 
                 <!-- Data Table -->
@@ -412,33 +413,8 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <!-- Row 1 -->
-                            <tr>
-                                <td>2B</td>
-                                <td>
-                                    September 3, 2026<br>
-                                    <span style="color: var(--text-muted); font-size: 0.85rem;">10:00 AM</span>
-                                </td>
-                                <td>Juan Juan</td>
-                                <td><span class="status-badge badge-pending">Pending</span></td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="btn-icon btn-approve" title="Approve">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                        </button>
-                                        <button class="btn-icon btn-reject" title="Reject">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <!-- Empty Rows to match the visual spacing in the screenshot -->
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td></tr>
-                            <tr class="empty-row"><td></td><td></td><td></td><td></td><td></td></tr>
+                        <tbody id="appointmentsTableBody">
+                            <!-- Rows generated by JavaScript -->
                         </tbody>
                     </table>
                 </div>
@@ -446,8 +422,167 @@
             </section>
 
         </main>
-
     </div>
+
+    <!-- =========================================
+         MODAL: VIEW APPOINTMENT
+         ========================================= -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Appointment Details</h2>
+                <button class="close-modal" onclick="closeViewModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="view-detail"><strong>Unit:</strong> <span id="viewUnit"></span></div>
+                <div class="view-detail"><strong>Date:</strong> <span id="viewDate"></span></div>
+                <div class="view-detail"><strong>Time:</strong> <span id="viewTime"></span></div>
+                <div class="view-detail"><strong>Prospective Tenant:</strong> <span id="viewTenant"></span></div>
+                <div class="view-detail"><strong>Status:</strong> <span id="viewStatus"></span></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeViewModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================
+        // 1. DATA STORAGE
+        // =========================================
+        let appointmentsData = [
+            { unit: "2B", date: "September 3, 2026", time: "10:00 AM", tenant: "Juan Juan", status: "Pending" },
+            // Add some dummy upcoming appointments so the tab isn't empty
+            { unit: "3C", date: "September 5, 2026", time: "2:00 PM", tenant: "Maria Santos", status: "Approved" },
+            { unit: "5E", date: "September 6, 2026", time: "11:30 AM", tenant: "Pedro Reyes", status: "Approved" }
+        ];
+
+        let currentFilter = 'upcoming';
+
+        // =========================================
+        // 2. RENDER THE TABLE
+        // =========================================
+        function renderTable() {
+            const tbody = document.getElementById("appointmentsTableBody");
+            tbody.innerHTML = "";
+
+            // Filter the data
+            const filteredData = appointmentsData.filter(appt => {
+                if (currentFilter === 'upcoming') return appt.status === "Approved" || appt.status === "Pending";
+                if (currentFilter === 'pending') return appt.status === "Pending";
+                return true;
+            });
+
+            // Update the counts on the tabs
+            const upcomingCount = appointmentsData.filter(a => a.status === "Approved" || a.status === "Pending").length;
+            const pendingCount = appointmentsData.filter(a => a.status === "Pending").length;
+            document.getElementById("upcomingCount").textContent = upcomingCount;
+            document.getElementById("pendingCount").textContent = pendingCount;
+
+            if (filteredData.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="padding: 30px; color: #6b7280; text-align: center;">No appointments found.</td></tr>`;
+                return;
+            }
+
+            filteredData.forEach((appt) => {
+                const row = document.createElement("tr");
+                const originalIndex = appointmentsData.indexOf(appt);
+                
+                const badgeClass = appt.status === "Pending" ? "badge-pending" : "badge-approved";
+
+                row.innerHTML = `
+                    <td>${appt.unit}</td>
+                    <td>${appt.date}<br><span style="color: var(--text-muted); font-size: 0.85rem;">${appt.time}</span></td>
+                    <td>${appt.tenant}</td>
+                    <td><span class="status-badge ${badgeClass}">${appt.status}</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            ${appt.status === "Pending" ? `
+                                <button class="btn-icon btn-approve" title="Approve" onclick="approveAppointment(${originalIndex})">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </button>
+                                <button class="btn-icon btn-reject" title="Reject" onclick="rejectAppointment(${originalIndex})">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </button>
+                            ` : `
+                                <button class="btn-view" onclick="openViewModal(${originalIndex})">View</button>
+                            `}
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Add empty rows for visual spacing (only on upcoming tab)
+            if (currentFilter === 'upcoming') {
+                for (let i = 0; i < 3; i++) {
+                    const emptyRow = document.createElement("tr");
+                    emptyRow.className = "empty-row";
+                    emptyRow.innerHTML = `<td></td><td></td><td></td><td></td><td></td>`;
+                    tbody.appendChild(emptyRow);
+                }
+            }
+        }
+
+        // =========================================
+        // 3. TAB SWITCHING
+        // =========================================
+        function switchTab(filter, buttonElement) {
+            currentFilter = filter;
+            
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttonElement.classList.add('active');
+
+            renderTable();
+        }
+
+        // =========================================
+        // 4. APPROVE / REJECT LOGIC
+        // =========================================
+        function approveAppointment(index) {
+            if (confirm("Are you sure you want to approve this appointment?")) {
+                appointmentsData[index].status = "Approved";
+                renderTable();
+            }
+        }
+
+        function rejectAppointment(index) {
+            if (confirm("Are you sure you want to reject this appointment?")) {
+                appointmentsData.splice(index, 1); // Remove from list entirely
+                renderTable();
+            }
+        }
+
+        // =========================================
+        // 5. VIEW LOGIC
+        // =========================================
+        const viewModal = document.getElementById("viewModal");
+
+        function openViewModal(index) {
+            const appt = appointmentsData[index];
+            document.getElementById("viewUnit").textContent = appt.unit;
+            document.getElementById("viewDate").textContent = appt.date;
+            document.getElementById("viewTime").textContent = appt.time;
+            document.getElementById("viewTenant").textContent = appt.tenant;
+            document.getElementById("viewStatus").textContent = appt.status;
+            viewModal.style.display = "flex";
+        }
+
+        function closeViewModal() {
+            viewModal.style.display = "none";
+        }
+
+        // Close modal if user clicks outside
+        window.onclick = function(event) {
+            if (event.target === viewModal) closeViewModal();
+        }
+
+        // Initialize table
+        renderTable();
+
+    </script>
 
 </body>
 </html>
