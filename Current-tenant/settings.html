@@ -205,4 +205,302 @@
 
         .cancel-button { background: #e5e7eb; color: #374151; }
         .confirm-button { background: #dc3545; color: white; }
-        .sa
+        .save-button { background: #2563eb; color: white; }
+        .save-button:hover { background: #1d4ed8; }
+    </style>
+</head>
+
+<body>
+
+    <div class="tenant-layout">
+
+         <!-- SIDEBAR -->
+    <aside class="tenant-sidebar">
+
+        <div class="tenant-brand">
+            <div class="tenant-logo">🏠</div>
+            <div>
+                <h2>RentEase</h2>
+                <span>Current Tenant</span>
+            </div>
+        </div>
+
+        <div class="tenant-info">
+                <div class="profile-circle"></div>
+                <h3>Hello, Guest</h3>
+                <p>Current Tenant</p>
+            </div>
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span>📶</span>
+                    Dashboard
+                </a>
+
+                <a href="payments.html" class="nav-item">
+                    <span>💳</span>
+                    Payments
+                </a>
+
+                <a href="maintenance.html" class="nav-item">
+                    <span>🔧</span>
+                    Maintenance
+                </a>
+
+                <a href="profile.html" class="nav-item">
+                    <span>👤</span>
+                    Profile
+                </a>
+
+                <a href="settings.html" class="nav-item active">
+                    <span>⚙️</span>
+                    Settings
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- TOPBAR (Current Tenant badge removed) -->
+            <div class="topbar">
+                <div>
+                    <h2>Settings</h2>
+                    <p>Manage your account preferences</p>
+                </div>
+            </div>
+
+
+            <!-- SETTINGS -->
+            <div class="settings-container">
+
+                <div class="settings-title">
+                    <h1>Settings</h1>
+                    <p>Manage your account and notification preferences.</p>
+                </div>
+
+
+                <!-- ACCOUNT SETTINGS -->
+                <div class="settings-section">
+
+                    <h2>Account Settings</h2>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Profile Information</strong>
+                            <span>Update your personal information.</span>
+                        </div>
+                        <button class="setting-button" onclick="openProfileModal()">
+                            View Profile
+                        </button>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Password</strong>
+                            <span>Keep your account secure.</span>
+                        </div>
+                        <button class="setting-button" onclick="openPasswordModal()">
+                            Change
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- NOTIFICATION SETTINGS -->
+                <div class="settings-section">
+
+                    <h2>Notifications</h2>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Payment Reminders</strong>
+                            <span>Receive reminders about upcoming rent payments.</span>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" checked onchange="toggleNotification('Payment Reminders', this)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Maintenance Updates</strong>
+                            <span>Receive updates about your maintenance requests.</span>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" checked onchange="toggleNotification('Maintenance Updates', this)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <!-- RENTAL INFORMATION -->
+                <div class="settings-section">
+
+                    <h2>Rental Information</h2>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Current Unit</strong>
+                            <span>View your current rental information.</span>
+                        </div>
+                        <button class="setting-button" onclick="openUnitModal()">
+                            View
+                        </button>
+                    </div>
+
+                </div>
+
+
+                <!-- LOGOUT -->
+                <div class="settings-section">
+
+                    <h2>Account</h2>
+
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <strong>Log Out</strong>
+                            <span>Log out from your RentEase account.</span>
+                        </div>
+                        <button class="setting-button logout-button" onclick="openLogoutModal()">
+                            Log Out
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         MODAL: VIEW PROFILE
+         ========================================= -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-box">
+            <h3>Profile Information</h3>
+            <div class="modal-detail"><strong>Full Name:</strong> <span>Juan Dela Cruz</span></div>
+            <div class="modal-detail"><strong>Email:</strong> <span>juan.delacruz@email.com</span></div>
+            <div class="modal-detail"><strong>Contact Number:</strong> <span>0917 123 4567</span></div>
+            <div class="modal-detail"><strong>Unit:</strong> <span>Unit 4D</span></div>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeModal('profileModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         MODAL: CHANGE PASSWORD
+         ========================================= -->
+    <div class="modal-overlay" id="passwordModal">
+        <div class="modal-box">
+            <h3>Change Password</h3>
+            <p>Enter your new password below.</p>
+            <div class="modal-input-group">
+                <label>Current Password</label>
+                <input type="password" placeholder="Enter current password">
+            </div>
+            <div class="modal-input-group">
+                <label>New Password</label>
+                <input type="password" placeholder="Enter new password">
+            </div>
+            <div class="modal-input-group">
+                <label>Confirm New Password</label>
+                <input type="password" placeholder="Confirm new password">
+            </div>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeModal('passwordModal')">Cancel</button>
+                <button class="save-button" onclick="savePassword()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         MODAL: VIEW CURRENT UNIT
+         ========================================= -->
+    <div class="modal-overlay" id="unitModal">
+        <div class="modal-box">
+            <h3>Current Unit Details</h3>
+            <div class="modal-detail"><strong>Unit:</strong> <span>Unit 4D</span></div>
+            <div class="modal-detail"><strong>Type:</strong> <span>1 BR - 1 Bath</span></div>
+            <div class="modal-detail"><strong>Monthly Rent:</strong> <span>₱ 3,500</span></div>
+            <div class="modal-detail"><strong>Move-in Date:</strong> <span>Feb. 22, 2025</span></div>
+            <div class="modal-detail"><strong>Status:</strong> <span style="color: #10b981; font-weight: 600;">Active</span></div>
+            <div class="modal-actions">
+                <button class="cancel-button" onclick="closeModal('unitModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================
+         MODAL: LOGOUT
+         ========================================= -->
+    <div class="modal-overlay" id="logoutModal">
+        <div class="modal-box" style="text-align: center;">
+            <h3>Log Out</h3>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions" style="justify-content: center;">
+                <button class="cancel-button" onclick="closeModal('logoutModal')">Cancel</button>
+                <button class="confirm-button" onclick="confirmLogout()">OK</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // =========================================
+        // MODAL CONTROLS
+        // =========================================
+        function openModal(id) {
+            document.getElementById(id).style.display = "flex";
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = "none";
+        }
+
+        // Specific Openers
+        function openProfileModal() { openModal('profileModal'); }
+        function openPasswordModal() { openModal('passwordModal'); }
+        function openUnitModal() { openModal('unitModal'); }
+        function openLogoutModal() { openModal('logoutModal'); }
+
+        // =========================================
+        // ACTIONS
+        // =========================================
+        function savePassword() {
+            alert("Password changed successfully!");
+            closeModal('passwordModal');
+        }
+
+        function toggleNotification(name, checkbox) {
+            const status = checkbox.checked ? "enabled" : "disabled";
+            console.log(name + " " + status);
+        }
+
+        function confirmLogout() {
+        
+            window.location.href = "../index.html";
+        }
+
+        // Close modal if user clicks outside the white box
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
